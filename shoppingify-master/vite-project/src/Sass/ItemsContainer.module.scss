@@ -1,0 +1,10 @@
+.items-container {
+  height: 100vh;
+  width: 389px;
+  background-color: rgba(255, 240, 222, 1);
+}
+@media screen and (max-width: 678px) {
+  .items-container {
+    display: none;
+  }
+}

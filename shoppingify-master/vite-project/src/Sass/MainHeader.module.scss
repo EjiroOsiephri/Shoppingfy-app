@@ -1,0 +1,69 @@
+.texts > span {
+  font-size: 25px;
+  color: rgba(249, 161, 9, 1);
+  font-weight: 700;
+  line-height: 32.5px;
+  letter-spacing: 1.1px;
+  margin-right: 0.8rem;
+}
+.texts {
+  display: flex;
+}
+.texts h1 {
+  font-weight: 500;
+  font-size: 26px;
+  margin-right: 1em;
+}
+.main-header {
+  display: flex;
+  margin-top: 30px;
+  margin-left: 2em;
+}
+.inputs input {
+  height: 50.92px;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  border-radius: 10px;
+  padding: 1rem;
+  border: none;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  margin-top: -0.9em;
+  margin-right: 1rem;
+}
+@media screen and (max-width: 506px) {
+  .main-header {
+    flex-direction: column;
+    margin-left: 12px;
+    margin-top: 20px;
+  }
+  .texts {
+    flex-direction: column;
+  }
+  .texts > span {
+    margin-bottom: 0.5rem;
+  }
+  .texts h1 {
+    font-size: 18px;
+    max-width: 380px;
+  }
+  .inputs input {
+    margin-top: 1.2rem;
+    width: 90%;
+  }
+}
+@media screen and (min-width: 507px) and (max-width: 900px) {
+  .main-header {
+    margin-left: 10px;
+  }
+  .texts span {
+    font-size: 18px;
+  }
+  .texts h1 {
+    margin-right: 0.5em;
+    font-size: 15px;
+    max-width: 380px;
+  }
+  .texts > span {
+    margin-bottom: 0.5rem;
+  }
+}

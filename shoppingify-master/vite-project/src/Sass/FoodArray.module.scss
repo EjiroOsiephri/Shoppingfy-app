@@ -1,0 +1,15 @@
+.foodArray {
+  display: flex;
+  margin: 2em 0 0.8em 1em;
+  flex-wrap: wrap;
+}
+
+.foodAndVegetables {
+  width: 182px;
+  height: 50px;
+  background-color: white;
+  margin: 2em 0 0.8em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

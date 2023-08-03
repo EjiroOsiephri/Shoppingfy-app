@@ -36,3 +36,17 @@ nav {
   display: flex;
   flex-direction: column;
 }
+.count {
+  width: 20.72px;
+  height: 19.97px;
+  background: rgba(235, 87, 87, 1);
+  border-radius: 5px;
+  position: relative;
+  top: -15%;
+  left: 42%;
+}
+.count p {
+  text-align: center;
+  color: white;
+  font-weight: 500;
+}
