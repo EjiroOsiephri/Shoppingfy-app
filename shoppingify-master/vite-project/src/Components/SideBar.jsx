@@ -20,6 +20,7 @@ const SideBar = () => {
         </div>
         <div className={Classes.cartItems}>
           <img src={Cart} alt="cart" />
+          <p>0</p>
         </div>
       </nav>
     </>
