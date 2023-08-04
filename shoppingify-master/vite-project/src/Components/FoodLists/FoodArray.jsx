@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { cartActions } from "../../Store/CartSlice";
 
-const FoodArray = () => {
+const FoodArray = (props) => {
   const foodAndVegetables = [
     {
       name: "Avocado",
@@ -67,13 +67,16 @@ const FoodArray = () => {
     dispatch(cartActions.addItemToCart(item));
   };
 
-  console.log(state);
+  const foodFilterArray = foodAndVegetables.filter((item) =>
+    item.name.toLowerCase().includes(props.searchInputItem.toLowerCase())
+  );
+
   return (
     <>
       <main>
         <h1>Food and Vegetables</h1>
         <section className={Classes.foodArray}>
-          {foodAndVegetables.map((item) => {
+          {foodFilterArray.map((item) => {
             return (
               <div
                 key={item.id}

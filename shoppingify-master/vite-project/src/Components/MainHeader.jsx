@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Classes from "../Sass/MainHeader.module.scss";
 import FoodArray from "./FoodLists/FoodArray";
 
-const MainHeader = () => {
+const MainHeader = (props) => {
+  const handleInputValue = (e) => {
+    props.searchInput(e.target.value);
+  };
   return (
     <>
       <main>
@@ -12,11 +15,15 @@ const MainHeader = () => {
             <h1>allows you take your shopping list wherever you go</h1>
           </div>
           <div className={Classes["inputs"]}>
-            <input placeholder="Search item" type="text" />
+            <input
+              onChange={handleInputValue}
+              placeholder="Search item"
+              type="text"
+            />
           </div>
         </header>
         <section>
-          <FoodArray />
+          <FoodArray searchInputItem={props.searchInputItem} />
         </section>
       </main>
     </>
