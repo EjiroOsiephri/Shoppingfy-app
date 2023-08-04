@@ -5,8 +5,10 @@ import poll from "../assets/poll.svg";
 import rotate from "../assets/rotate.svg";
 import lists from "../assets/list.svg";
 import Cart from "../assets/cart.png";
+import { useSelector } from "react-redux";
 
 const SideBar = () => {
+  const state = useSelector((state) => state.cart.totalCartQuantity);
   return (
     <>
       <nav className={Classes.navigation}>
@@ -22,7 +24,7 @@ const SideBar = () => {
           <img src={Cart} alt="cart" />
         </div>
         <section className={Classes.count}>
-          <p>0</p>
+          <p>{state}</p>
         </section>
       </nav>
     </>
