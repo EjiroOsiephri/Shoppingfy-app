@@ -8,7 +8,7 @@ const MainHeader = (props) => {
   };
   return (
     <>
-      <main>
+      <main className={Classes.MainHeader}>
         <header className={Classes["main-header"]}>
           <div className={Classes["texts"]}>
             <span>Shoppingify</span>
