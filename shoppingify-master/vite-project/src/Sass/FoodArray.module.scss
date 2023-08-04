@@ -1,10 +1,11 @@
 .foodArray {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
 }
 
 .foodAndVegetables {
-  width: 182px;
+  width: 80%;
   height: 50px;
   background-color: white;
   margin: 2em 0 0.8em 1em;
@@ -13,4 +14,17 @@
   justify-content: space-around;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   border-radius: 12px;
+  padding: 1em;
+}
+.foodAndVegetables p:first-child {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+}
+.foodAndVegetables p:last-child {
+  font-size: 24px;
+  font-weight: 900;
+  color: rgba(193, 193, 196, 1);
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
 }
