@@ -1,7 +1,6 @@
 .foodArray {
-  display: flex;
-  margin: 2.5em 0 0.8em 1em;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto auto auto;
 }
 
 .foodAndVegetables {
@@ -11,7 +10,7 @@
   margin: 2em 0 0.8em 1em;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-  border-radius: 10px;
+  border-radius: 12px;
 }

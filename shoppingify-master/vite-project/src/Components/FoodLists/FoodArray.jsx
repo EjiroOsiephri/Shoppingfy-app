@@ -68,7 +68,10 @@ const FoodArray = () => {
                   addItemToCart(item);
                 }}
                 className={Classes["foodAndVegetables"]}
-              >{`${item.name} ${"     "} + `}</div>
+              >
+                <p>{item.name}</p>
+                <p>+</p>
+              </div>
             );
           })}
         </section>
