@@ -41,10 +41,22 @@ const FoodArray = () => {
   ];
 
   const meatAndFish = [
-    "Chicken 1kg",
-    "Chicken leg box",
-    "Pork fillets 450g",
-    "Salmon 1kg",
+    {
+      name: "Chicken 1kg",
+      id: "m1",
+    },
+    {
+      name: "Chicken leg box",
+      id: "m2",
+    },
+    {
+      name: "Pork fillets 450g",
+      id: "m3",
+    },
+    {
+      name: "Salmon 1kg",
+      id: "m4",
+    },
   ];
 
   const state = useSelector((state) => state.cart.items);
@@ -59,8 +71,26 @@ const FoodArray = () => {
   return (
     <>
       <main>
+        <h1>Food and Vegetables</h1>
         <section className={Classes.foodArray}>
           {foodAndVegetables.map((item) => {
+            return (
+              <div
+                key={item.id}
+                onClick={() => {
+                  addItemToCart(item);
+                }}
+                className={Classes["foodAndVegetables"]}
+              >
+                <p>{item.name}</p>
+                <p>+</p>
+              </div>
+            );
+          })}
+        </section>
+        <h1>Meat and Fish</h1>
+        <section className={Classes.foodArray}>
+          {meatAndFish.map((item) => {
             return (
               <div
                 key={item.id}

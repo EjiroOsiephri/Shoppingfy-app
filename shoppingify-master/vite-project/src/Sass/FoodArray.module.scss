@@ -3,7 +3,9 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
 }
-
+main > h1 {
+  margin: 3em 0 1em 1em;
+}
 .foodAndVegetables {
   width: 80%;
   height: 50px;
