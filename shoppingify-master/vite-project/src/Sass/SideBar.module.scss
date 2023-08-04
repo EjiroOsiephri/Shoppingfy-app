@@ -1,4 +1,5 @@
 nav {
+  position: relative;
   height: 100vh;
   background: rgba(255, 255, 255, 1);
   display: flex;
@@ -43,6 +44,11 @@ nav {
   height: 19.97px;
   background: rgba(235, 87, 87, 1);
   border-radius: 5px;
+  position: absolute;
+  top: 86%;
+  right: 40%;
+  transform: translate(50%, -50%);
+  z-index: 1;
 }
 .count p {
   text-align: center;
