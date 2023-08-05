@@ -1,9 +1,7 @@
 .items-container {
-  display: grid;
   height: 100vh;
-  width: 389px;
   background-color: rgba(255, 240, 222, 1);
-  flex: 0 0 300px;
+  flex: 0 0 389px;
   padding: 10px;
 }
 
@@ -36,9 +34,51 @@
   letter-spacing: 1.2px;
   margin-top: 1em;
 }
-
+.showItemsInCart p {
+  text-align: center;
+  font-weight: 700;
+  color: rgba(52, 51, 58, 1);
+  margin-top: 3em;
+}
+.showItemsInCart img {
+  max-width: 100%;
+  margin-inline: auto;
+  margin-top: 4.6rem;
+  margin-left: 2.1rem;
+  height: auto;
+  position: absolute;
+  bottom: 60;
+}
+.enterFoodItem {
+  display: flex;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10px;
+}
+.enterFoodItem input {
+  border: 2px solid rgba(193, 193, 196, 1);
+  width: 100%;
+  padding: 5px;
+  height: 60px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.enterFoodItem > button {
+  width: 100.34770202636719px;
+  height: 61.25048828125px;
+  border-radius: 12px;
+  border: 2px solid rgba(193, 193, 196, 1);
+  cursor: pointer;
+}
 @media screen and (max-width: 678px) {
   .items-container {
     display: none;
+  }
+}
+@media screen and (max-width: 900px) {
+  .items-container {
+    flex: 0 0 300px;
   }
 }
