@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Classes from "../Sass/ItemsContainer.module.scss";
 import Source from "../assets/source.svg";
 import EmptyCart from "../assets/shop.svg";
+import Pen from "../assets/pen.svg";
 import { useSelector } from "react-redux";
 
 const ItemsContainer = () => {
@@ -36,7 +37,14 @@ const ItemsContainer = () => {
             <img src={EmptyCart} alt="" />
           </div>
         ) : (
-          <section>
+          <section className={Classes["products-container"]}>
+            <div className={Classes["AddToCategories"]}>
+              <h1>Shopping Lists</h1>
+              <div>
+                <h3>Add categories</h3>
+                <img src={Pen} alt="" />
+              </div>
+            </div>
             {state.map((item) => {
               return (
                 <div className={Classes["item-container-name"]} key={item.id}>
