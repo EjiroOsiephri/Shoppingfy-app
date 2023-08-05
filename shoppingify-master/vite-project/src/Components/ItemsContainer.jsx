@@ -3,10 +3,13 @@ import Classes from "../Sass/ItemsContainer.module.scss";
 import Source from "../assets/source.svg";
 import EmptyCart from "../assets/shop.svg";
 import Pen from "../assets/pen.svg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../Store/CartSlice";
 
 const ItemsContainer = (props) => {
   const state = useSelector((state) => state.cart.items);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (state.length > 0) {
@@ -15,6 +18,10 @@ const ItemsContainer = (props) => {
       props.setCartItems(false);
     }
   }, [state]);
+
+  function removeItemFromCart(id) {
+    dispatch(cartActions.removeItemFromCart(id));
+  }
 
   return (
     <>
@@ -49,7 +56,16 @@ const ItemsContainer = (props) => {
                         <input type="checkbox" />
                         <h1>{item.name}</h1>
                       </div>
-                      <h2>{`${item.quantity}pcs`}</h2>
+                      <h2>
+                        {`${item.quantity}pcs`}{" "}
+                        <span
+                          onClick={() => {
+                            removeItemFromCart(item.id);
+                          }}
+                        >
+                          -
+                        </span>
+                      </h2>
                     </div>
                   </aside>
                 );
