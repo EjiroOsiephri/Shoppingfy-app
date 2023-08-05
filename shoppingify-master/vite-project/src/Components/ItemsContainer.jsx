@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Classes from "../Sass/ItemsContainer.module.scss";
 import Source from "../assets/source.svg";
 import EmptyCart from "../assets/shop.svg";
@@ -10,6 +10,14 @@ const ItemsContainer = () => {
 
   const [cartItems, setCartItems] = useState(false);
 
+  const [checked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
+
+  console.log(state);
+
   useEffect(() => {
     if (state.length > 0) {
       setCartItems(true);
@@ -18,9 +26,6 @@ const ItemsContainer = () => {
     }
   }, [state]);
 
-  state.map((item) => {
-    console.log(item.name);
-  });
   return (
     <>
       <aside className={Classes["items-container"]}>
@@ -47,20 +52,47 @@ const ItemsContainer = () => {
             </div>
             {state.map((item) => {
               return (
-                <div className={Classes["item-container-name"]} key={item.id}>
-                  <div className={Classes["item-name"]}>
-                    <input type="checkbox" />
-                    <h1>{item.name}</h1>
+                <aside key={item.id}>
+                  <h1>{item.title}</h1>
+                  <div className={Classes["item-container-name"]}>
+                    <div className={Classes["item-name"]}>
+                      <input type="checkbox" />
+                      <h1>{item.name}</h1>
+                    </div>
+                    <h2>{`${item.quantity}pcs`}</h2>
                   </div>
-                  <h2>{`${item.quantity}pcs`}</h2>
-                </div>
+                </aside>
               );
             })}
           </section>
         )}
         <div className={Classes["enterFoodItem"]}>
-          <input type="text" placeholder="Enter a name" />
-          <button>Save</button>
+          <input
+            style={
+              cartItems
+                ? {
+                    border: "rgba(249, 161, 9, 1)",
+                  }
+                : {}
+            }
+            disabled={!cartItems}
+            onClick={handleCheckboxChange}
+            type="text"
+            placeholder="Enter a name"
+          />
+          <button
+            style={
+              cartItems
+                ? {
+                    background: "rgba(249, 161, 9, 1)",
+                    color: "white",
+                  }
+                : {}
+            }
+            disabled={!cartItems}
+          >
+            Save
+          </button>
         </div>
       </aside>
     </>
