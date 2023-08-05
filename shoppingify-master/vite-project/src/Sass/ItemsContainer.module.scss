@@ -87,8 +87,9 @@
   width: 24px;
   height: 24px;
   border-radius: 4px;
+  padding-right: 0.9em;
   border-radius: 2px;
-  border: 2px solid rgba(249, 161, 9, 1);
+  border-color: rgba(249, 161, 9, 1);
 }
 .item-name h1 {
   color: rgba(0, 0, 0, 1);
@@ -129,6 +130,21 @@
 }
 .AddToCategories > div > h3 {
   margin-right: 0.6em;
+}
+aside > h1 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 23px;
+  text-align: left;
+  color: rgba(0, 0, 0, 1);
+  margin-bottom: 0.5em;
+}
+.item-container-name:last-child {
+  margin-bottom: 4em;
+}
+
+input {
+  border: 2px solid rgba(249, 161, 9, 1);
 }
 @media screen and (max-width: 678px) {
   .items-container {
