@@ -17,6 +17,9 @@ const ItemsContainer = () => {
     }
   }, [state]);
 
+  state.map((item) => {
+    console.log(item.name);
+  });
   return (
     <>
       <aside className={Classes["items-container"]}>
@@ -27,11 +30,25 @@ const ItemsContainer = () => {
             <button>Add item</button>
           </div>
         </section>
-        {!cartItems && (
+        {!cartItems ? (
           <div className={Classes["showItemsInCart"]}>
             <p>No items</p>
             <img src={EmptyCart} alt="" />
           </div>
+        ) : (
+          <section>
+            {state.map((item) => {
+              return (
+                <div className={Classes["item-container-name"]} key={item.id}>
+                  <div className={Classes["item-name"]}>
+                    <input type="checkbox" />
+                    <h1>{item.name}</h1>
+                  </div>
+                  <h2>{`${item.quantity}pcs`}</h2>
+                </div>
+              );
+            })}
+          </section>
         )}
         <div className={Classes["enterFoodItem"]}>
           <input type="text" placeholder="Enter a name" />
