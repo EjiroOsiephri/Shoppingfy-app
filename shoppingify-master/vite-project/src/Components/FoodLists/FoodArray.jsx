@@ -70,6 +70,72 @@ const FoodArray = (props) => {
     },
   ];
 
+  const beverages = [
+    {
+      title: "Beverages",
+      name: "Green tea",
+      id: "b1",
+    },
+    {
+      title: "Beverages",
+      name: "Cola",
+      id: "b2",
+    },
+    {
+      title: "Beverages",
+      name: "Skotch blended brandi",
+      id: "b3",
+    },
+    {
+      title: "Beverages",
+      name: "Heineken",
+      id: "b4",
+    },
+    {
+      title: "Beverages",
+      name: "Coffee",
+      id: "b5",
+    },
+    {
+      title: "Beverages",
+      name: "Mocktails",
+      id: "b6",
+    },
+  ];
+
+  const Pets = [
+    {
+      title: "Pets",
+      name: "Pet grooming bed",
+      id: "p1",
+    },
+    {
+      title: "Pets",
+      name: "Chicken cage",
+      id: "p2",
+    },
+    {
+      title: "Pets",
+      name: "Dog milk and sugar",
+      id: "p3",
+    },
+    {
+      title: "Pets",
+      name: "Dog bowl and clean water",
+      id: "p4",
+    },
+    {
+      title: "Pets",
+      name: "Collar and leash",
+      id: "p5",
+    },
+    {
+      title: "Pets",
+      name: "Chicken feed 1kg",
+      id: "p6",
+    },
+  ];
+
   const dispatch = useDispatch();
 
   const addItemToCart = (item) => {
@@ -107,6 +173,40 @@ const FoodArray = (props) => {
         <h1>Meat and Fish</h1>
         <section className={Classes.foodArray}>
           {chickenFiterArray.map((item) => {
+            return (
+              <div
+                key={item.id}
+                onClick={() => {
+                  addItemToCart(item);
+                }}
+                className={Classes["foodAndVegetables"]}
+              >
+                <p>{item.name}</p>
+                <p>+</p>
+              </div>
+            );
+          })}
+        </section>
+        <h1>Beverages</h1>
+        <section className={Classes.foodArray}>
+          {beverages.map((item) => {
+            return (
+              <div
+                key={item.id}
+                onClick={() => {
+                  addItemToCart(item);
+                }}
+                className={Classes["foodAndVegetables"]}
+              >
+                <p>{item.name}</p>
+                <p>+</p>
+              </div>
+            );
+          })}
+        </section>
+        <h1>Pets</h1>
+        <section className={Classes.foodArray}>
+          {Pets.map((item) => {
             return (
               <div
                 key={item.id}
