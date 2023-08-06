@@ -2,41 +2,36 @@ import SideBar from "./Components/SideBar";
 import MainHeader from "./Components/MainHeader";
 import "./app.scss";
 import ItemsContainer from "./Components/ItemsContainer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CartCategories from "./Components/FoodLists/CartCategories";
-import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [searchInputItem, setSearchItem] = useState("");
   const [cartItems, setCartItems] = useState(false);
+  const [showCart, setShowCart] = useState(false);
 
   function searchInput(item) {
     setSearchItem(item);
   }
 
-  console.log(cartItems);
   return (
     <>
       <main className="main">
-        <SideBar />
+        <SideBar setShowCart={setShowCart} />
         <MainHeader
+          showCart={showCart}
           searchInput={searchInput}
           searchInputItem={searchInputItem}
         />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <div className="cart-categories">
-                <ItemsContainer
-                  cartItems={cartItems}
-                  setCartItems={setCartItems}
-                />
-                <CartCategories cartItems={cartItems} />
-              </div>
-            }
+
+        <div className="cart-categories">
+          <ItemsContainer
+            showCart={showCart}
+            cartItems={cartItems}
+            setCartItems={setCartItems}
           />
-        </Routes>
+          <CartCategories cartItems={cartItems} />
+        </div>
       </main>
     </>
   );

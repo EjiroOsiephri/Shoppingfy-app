@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Classes from "../Sass/ItemsContainer.module.scss";
 import Source from "../assets/source.svg";
 import EmptyCart from "../assets/shop.svg";
@@ -10,6 +10,20 @@ const ItemsContainer = (props) => {
   const state = useSelector((state) => state.cart.items);
 
   const dispatch = useDispatch();
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     if (state.length > 0) {
@@ -25,7 +39,16 @@ const ItemsContainer = (props) => {
 
   return (
     <>
-      <aside className={Classes["items-container"]}>
+      <aside
+        style={
+          windowWidth <= 678 && props.showCart === true
+            ? {
+                display: "block",
+              }
+            : {}
+        }
+        className={Classes["items-container"]}
+      >
         <section className={Classes["AddItemToCartContainer"]}>
           <img src={Source} alt="img-source" />
           <div>

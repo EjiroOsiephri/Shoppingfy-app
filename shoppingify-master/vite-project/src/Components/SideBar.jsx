@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Classes from "../Sass/SideBar.module.scss";
 import appLogo from "../assets/logo.svg";
 import poll from "../assets/poll.svg";
@@ -7,8 +7,13 @@ import lists from "../assets/list.svg";
 import Cart from "../assets/cart.png";
 import { useSelector } from "react-redux";
 
-const SideBar = () => {
+const SideBar = (props) => {
   const state = useSelector((state) => state.cart.totalCartQuantity);
+
+  const cartRenderHandler = () => {
+    props.setShowCart((prevCart) => !prevCart);
+  };
+
   return (
     <>
       <nav className={Classes.navigation}>
@@ -20,7 +25,7 @@ const SideBar = () => {
           <img src={rotate} alt="" />
           <img src={lists} alt="" />
         </div>
-        <div className={Classes.cartItems}>
+        <div onClick={cartRenderHandler} className={Classes.cartItems}>
           <img src={Cart} alt="cart" />
         </div>
         <section className={Classes.count}>

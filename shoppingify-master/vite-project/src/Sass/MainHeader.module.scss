@@ -3,6 +3,11 @@
   overflow-y: auto;
   padding: 10px;
 }
+@media screen and (max-width: 678px) {
+  .MainHeader {
+    padding: 0;
+  }
+}
 .texts > span {
   font-size: 25px;
   color: rgba(249, 161, 9, 1);

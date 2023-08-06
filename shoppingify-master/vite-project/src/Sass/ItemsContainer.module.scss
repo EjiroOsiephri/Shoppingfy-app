@@ -50,6 +50,7 @@
   position: absolute;
   bottom: 60;
 }
+
 .enterFoodItem {
   display: flex;
   height: auto;
@@ -99,7 +100,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 68px;
+  width: 75px;
+  padding: 1em;
   height: 32px;
   border-radius: 24px;
   border: 2px solid rgba(249, 161, 9, 1);
@@ -168,5 +170,13 @@ input {
 @media screen and (min-width: 950px) {
   .enterFoodItem {
     margin-left: 30px;
+  }
+}
+@media screen and (max-width: 678px) {
+  .showItemsInCart img {
+    margin-left: 0;
+  }
+  .AddItemToCartContainer > div > button {
+    margin-top: 0.5em;
   }
 }
