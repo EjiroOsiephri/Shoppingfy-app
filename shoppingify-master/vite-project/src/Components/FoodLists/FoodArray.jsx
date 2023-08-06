@@ -149,6 +149,13 @@ const FoodArray = (props) => {
   const chickenFiterArray = meatAndFish.filter((item) =>
     item.name.toLowerCase().includes(props.searchInputItem.toLowerCase())
   );
+  const beveragesFiterArray = beverages.filter((item) =>
+    item.name.toLowerCase().includes(props.searchInputItem.toLowerCase())
+  );
+
+  const petFiterArray = Pets.filter((item) =>
+    item.name.toLowerCase().includes(props.searchInputItem.toLowerCase())
+  );
 
   return (
     <>
@@ -189,7 +196,7 @@ const FoodArray = (props) => {
         </section>
         <h1>Beverages</h1>
         <section className={Classes.foodArray}>
-          {beverages.map((item) => {
+          {beveragesFiterArray.map((item) => {
             return (
               <div
                 key={item.id}
@@ -206,7 +213,7 @@ const FoodArray = (props) => {
         </section>
         <h1>Pets</h1>
         <section className={Classes.foodArray}>
-          {Pets.map((item) => {
+          {petFiterArray.map((item) => {
             return (
               <div
                 key={item.id}
