@@ -4,6 +4,7 @@ import "./app.scss";
 import ItemsContainer from "./Components/ItemsContainer";
 import { useState } from "react";
 import CartCategories from "./Components/FoodLists/CartCategories";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [searchInputItem, setSearchItem] = useState("");
@@ -22,10 +23,20 @@ function App() {
           searchInput={searchInput}
           searchInputItem={searchInputItem}
         />
-        <div className="cart-categories">
-          <ItemsContainer cartItems={cartItems} setCartItems={setCartItems} />
-          <CartCategories cartItems={cartItems} />
-        </div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div className="cart-categories">
+                <ItemsContainer
+                  cartItems={cartItems}
+                  setCartItems={setCartItems}
+                />
+                <CartCategories cartItems={cartItems} />
+              </div>
+            }
+          />
+        </Routes>
       </main>
     </>
   );
