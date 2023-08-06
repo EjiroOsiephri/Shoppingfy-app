@@ -160,6 +160,15 @@ input {
   }
   .enterFoodItem {
     display: none;
+    align-items: center;
+  }
+  .enterFoodItem input {
+    height: 45px;
+    width: 80%;
+  }
+  .enterFoodItem button {
+    height: 45px;
+    width: 80%;
   }
 }
 @media screen and (max-width: 900px) {

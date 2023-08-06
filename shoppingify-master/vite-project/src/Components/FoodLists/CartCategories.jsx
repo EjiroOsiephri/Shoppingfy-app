@@ -1,10 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Classes from "../../Sass/ItemsContainer.module.scss";
 
 const CartCategories = (props) => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
-      <div className={Classes["enterFoodItem"]}>
+      <div
+        style={
+          windowWidth <= 678 && props.showCart === true
+            ? {
+                display: "block",
+                maxWidth: "100%",
+                marginInline: "auto",
+                marginLeft: "50px",
+              }
+            : {}
+        }
+        className={Classes["enterFoodItem"]}
+      >
         <input
           style={
             props.cartItems

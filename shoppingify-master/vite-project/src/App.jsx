@@ -30,7 +30,7 @@ function App() {
             cartItems={cartItems}
             setCartItems={setCartItems}
           />
-          <CartCategories cartItems={cartItems} />
+          <CartCategories showCart={showCart} cartItems={cartItems} />
         </div>
       </main>
     </>
