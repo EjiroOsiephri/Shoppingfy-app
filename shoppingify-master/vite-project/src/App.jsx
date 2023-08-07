@@ -4,13 +4,14 @@ import "./app.scss";
 import ItemsContainer from "./Components/ItemsContainer";
 import { useState } from "react";
 import AppWideContext from "./Context/AppContext";
-import CartCategories from "./Components/FoodLists/CartCategories";
 
 function App() {
   const [searchInputItem, setSearchItem] = useState("");
   const [cartItems, setCartItems] = useState(false);
   const [showNewItem, setShowNewItem] = useState(false);
   const [showCart, setShowCart] = useState(false);
+  const [randomImage, setRandomImage] = useState("");
+  const [newPage, setNewPage] = useState(false);
 
   function searchInput(item) {
     setSearchItem(item);
@@ -19,6 +20,10 @@ function App() {
   const AddNewItemObj = {
     showNewItem: showNewItem,
     setShowNewItem: setShowNewItem,
+    setRandomImage: setRandomImage,
+    randomImage: randomImage,
+    newPage: newPage,
+    setNewPage: setNewPage,
   };
 
   return (
