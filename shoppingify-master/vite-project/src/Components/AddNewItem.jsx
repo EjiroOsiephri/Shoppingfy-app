@@ -93,7 +93,7 @@ const AddNewItem = () => {
           </div>
         </section>
       ) : (
-        <ItemsPage />
+        <ItemsPage name={name} />
       )}
     </>
   );

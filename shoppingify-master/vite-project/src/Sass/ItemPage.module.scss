@@ -5,3 +5,44 @@
   height: 100vh;
   overflow-y: auto;
 }
+.nameItemImage img {
+  width: 80%;
+  height: 219.69px;
+  border-radius: 25px;
+  margin-top: 2em;
+}
+.itemsPage > button {
+  background: none;
+  border: none;
+  color: rgba(249, 161, 9, 1);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 1.2px;
+  text-align: left;
+}
+.itemsPage label {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: 1.1px;
+  color: rgba(193, 193, 196, 1);
+  text-align: left;
+}
+.nameContainerDiv {
+  margin: 2em 0 2em 0;
+}
+.nameContainerDiv h1 {
+  margin-top: 0.7em;
+  text-transform: capitalize;
+  font-size: 24px;
+  letter-spacing: 1.2px;
+}
+@media screen and (max-width: 678px) {
+  .itemsPage {
+    width: 100vw;
+  }
+  .nameItemImage img {
+    object-fit: cover;
+  }
+}

@@ -3,15 +3,19 @@ import AppWideContext from "../Context/AppContext";
 import { useContext } from "react";
 import Classes from "../Sass/itemPage.module.scss";
 
-const ItemsPage = () => {
+const ItemsPage = (props) => {
   const ctx = useContext(AppWideContext);
-  console.log(ctx.randomImage);
+
   return (
     <>
       <section className={Classes["itemsPage"]}>
         <button>go back</button>
-        <div className="nameItemImage">
+        <div className={Classes["nameItemImage"]}>
           <img src={ctx.randomImage} alt="" />
+        </div>
+        <div className={Classes["nameContainerDiv"]}>
+          <label>name</label>
+          <h1>{props.name}</h1>
         </div>
         <div className="category">
           <label>Category</label>
