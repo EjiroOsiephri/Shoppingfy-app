@@ -161,6 +161,8 @@ input {
   .enterFoodItem {
     display: none;
     align-items: center;
+    position: absolute;
+    bottom: 0;
   }
   .enterFoodItem input {
     height: 45px;
