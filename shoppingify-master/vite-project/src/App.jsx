@@ -5,7 +5,6 @@ import ItemsContainer from "./Components/ItemsContainer";
 import { useState } from "react";
 import AppWideContext from "./Context/AppContext";
 import CartCategories from "./Components/FoodLists/CartCategories";
-import AddNewItem from "./Components/AddNewItem";
 
 function App() {
   const [searchInputItem, setSearchItem] = useState("");
@@ -39,7 +38,6 @@ function App() {
               cartItems={cartItems}
               setCartItems={setCartItems}
             />
-            <CartCategories showCart={showCart} cartItems={cartItems} />
           </div>
         </main>
       </AppWideContext.Provider>

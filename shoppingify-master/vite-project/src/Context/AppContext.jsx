@@ -1,7 +1,8 @@
 import { createContext } from "react";
 
 const AppWideContext = createContext({
-  state: true,
-  items: [],
+  setShowNewItem: true,
+  showNewItem: false,
 });
+
 export default AppWideContext;
