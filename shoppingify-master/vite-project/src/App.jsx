@@ -4,6 +4,7 @@ import "./app.scss";
 import ItemsContainer from "./Components/ItemsContainer";
 import { useState } from "react";
 import AppWideContext from "./Context/AppContext";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [searchInputItem, setSearchItem] = useState("");
