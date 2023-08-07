@@ -17,7 +17,7 @@ const AddNewItem = () => {
   const generateRandomImage = async () => {
     try {
       const response = await axios.get(
-        `https://api.unsplash.com/photos/random?query=${name}&client_id=Mn9WCHjFZosJNhWxhTebPQbGcbYSYmeXfeB_i-azsLo`
+        `https://api.unsplash.com/photos/random?query=${name}&client_id=vE_bNz4aN-fmSA-oQ2hDAnO7UxHA7j7lu1Dp7LlGuA4`
       );
       setRandomImage(response.data.urls.small_s3);
     } catch (error) {
@@ -38,17 +38,29 @@ const AddNewItem = () => {
     ctx.setNewPage(true);
   }
 
+  const focusOnCursorHandler = () => {
+    ctx.setFocus((prevValue) => !prevValue);
+  };
+
+  let formIsValid = false;
+
+  const nameIsValid = name.trim() === "";
+
+  if (nameIsValid) {
+    formIsValid = true;
+  }
+
   return (
     <>
       {!ctx.newPage ? (
         <section className={Classes["addewItemContainerSection"]}>
           <h1>Add a new item</h1>
           <div className={Classes["nameItemContainer"]}>
-            <label>Name</label>
+            <label> Name</label>
             <input
               onChange={handleNameChangeHandler}
               type="text"
-              placeholder="Enter a name"
+              placeholder="Enter an item name"
             />
           </div>
           <div className={Classes["noteItemContainer"]}>
@@ -61,13 +73,21 @@ const AddNewItem = () => {
           </div>
           <div className={Classes["categoryItemContainer"]}>
             <label>Category</label>
-            <input type="text" placeholder="Enter a Category" />
+            <input
+              onFocus={focusOnCursorHandler}
+              type="text"
+              placeholder="Enter a Category"
+            />
           </div>
           <div className={Classes["goBackContainer"]}>
             <button onClick={cancelPageHandler} className={Classes["cancel"]}>
               cancel
             </button>
-            <button onClick={navigatePage} className={Classes["save"]}>
+            <button
+              disabled={formIsValid}
+              onClick={navigatePage}
+              className={Classes["save"]}
+            >
               Save
             </button>
           </div>

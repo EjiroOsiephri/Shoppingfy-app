@@ -12,6 +12,7 @@ function App() {
   const [showCart, setShowCart] = useState(false);
   const [randomImage, setRandomImage] = useState("");
   const [newPage, setNewPage] = useState(false);
+  const [focus, setFocus] = useState(null);
 
   function searchInput(item) {
     setSearchItem(item);
@@ -24,6 +25,7 @@ function App() {
     randomImage: randomImage,
     newPage: newPage,
     setNewPage: setNewPage,
+    setFocus: setFocus,
   };
 
   return (

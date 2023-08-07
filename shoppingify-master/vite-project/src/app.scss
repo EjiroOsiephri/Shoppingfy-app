@@ -8,3 +8,7 @@
 .cart-categories {
   display: grid;
 }
+button:disabled {
+  background-color: gainsboro;
+  color: purple;
+}
