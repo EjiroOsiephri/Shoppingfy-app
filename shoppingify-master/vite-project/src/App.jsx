@@ -31,22 +31,29 @@ function App() {
   return (
     <>
       <AppWideContext.Provider value={AddNewItemObj}>
-        <main className="main">
-          <SideBar setShowCart={setShowCart} />
-          <MainHeader
-            showCart={showCart}
-            searchInput={searchInput}
-            searchInputItem={searchInputItem}
-          />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <main className="main">
+                <SideBar setShowCart={setShowCart} />
+                <MainHeader
+                  showCart={showCart}
+                  searchInput={searchInput}
+                  searchInputItem={searchInputItem}
+                />
 
-          <div className="cart-categories">
-            <ItemsContainer
-              showCart={showCart}
-              cartItems={cartItems}
-              setCartItems={setCartItems}
-            />
-          </div>
-        </main>
+                <div className="cart-categories">
+                  <ItemsContainer
+                    showCart={showCart}
+                    cartItems={cartItems}
+                    setCartItems={setCartItems}
+                  />
+                </div>
+              </main>
+            }
+          />
+        </Routes>
       </AppWideContext.Provider>
     </>
   );

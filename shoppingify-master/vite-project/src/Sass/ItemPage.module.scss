@@ -38,6 +38,30 @@
   font-size: 24px;
   letter-spacing: 1.2px;
 }
+.buttonComponent {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1em;
+}
+.delete {
+  color: rgba(52, 51, 58, 1);
+  background: none;
+  border: none;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+}
+.add {
+  width: 87.34770202636719px;
+  height: 61.25048828125px;
+  border-radius: 12px;
+  border: none;
+  background-color: rgba(249, 161, 9, 1);
+  color: white;
+  font-size: 16px;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+}
 @media screen and (max-width: 678px) {
   .itemsPage {
     width: 100vw;
