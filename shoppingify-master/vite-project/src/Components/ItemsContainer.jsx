@@ -46,8 +46,6 @@ const ItemsContainer = (props) => {
     ctx.setShowNewItem(true);
   };
 
-  console.log(ctx.showNewItem);
-
   return (
     <>
       {ctx.showNewItem ? (
@@ -58,7 +56,7 @@ const ItemsContainer = (props) => {
             windowWidth <= 678 && props.showCart === true
               ? {
                   display: "block",
-                  flex: "0 0 300px",
+                  flex: "0 0 370px",
                 }
               : {}
           }
