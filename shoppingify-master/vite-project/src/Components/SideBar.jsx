@@ -23,7 +23,7 @@ const SideBar = (props) => {
         <div className={Classes.navigatePages}>
           <img src={poll} alt="" />
           <img src={rotate} alt="" />
-          <img src={lists} alt="" />
+          <img onClick={cartRenderHandler} src={lists} alt="" />
         </div>
         <div onClick={cartRenderHandler} className={Classes.cartItems}>
           <img src={Cart} alt="cart" />

@@ -8,6 +8,7 @@ import ShowCategory from "./modal/ShowCategory";
 const AddNewItem = () => {
   const [name, setName] = useState("");
   const [randomImage, setRandomImage] = useState("");
+  const [nameValue, setNameValue] = useState("");
 
   const ctx = useContext(AppWideContext);
 
@@ -51,6 +52,12 @@ const AddNewItem = () => {
     formIsValid = true;
   }
 
+  useEffect(() => {
+    setNameValue(
+      ctx.vegetables || ctx.MeatAndFish || ctx.pets || ctx.beverages
+    );
+  }, [ctx.vegetables, ctx.MeatAndFish, ctx.pets, ctx.beverages]);
+
   return (
     <>
       {!ctx.newPage ? (
@@ -80,6 +87,7 @@ const AddNewItem = () => {
             <input
               onFocus={focusOnCursorHandler}
               type="text"
+              value={nameValue}
               placeholder="Enter a Category"
             />
             {ctx.focus && <ShowCategory />}

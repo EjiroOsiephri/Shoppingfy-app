@@ -1,22 +1,39 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import Classes from "../../Sass/ShowCategory.module.scss";
 import AppWideContext from "../../Context/AppContext";
 
 const ShowCategory = () => {
   const ctx = useContext(AppWideContext);
 
-  const getItemNameRef = useRef(null);
+  const [beverages, setBeverages] = useState("");
+  const [vegetables, setVegetables] = useState("");
+  const [MeatAndFish, setMeatAndFish] = useState("");
+  const [pets, setpets] = useState("");
 
-  const h2VegetableText = getItemNameRef?.current?.textContent;
+  const getItemNameRef = useRef(null);
+  const getBeveragesRef = useRef(null);
+  const getMeatAndFishRef = useRef(null);
+  const getPetRef = useRef(null);
 
   function getFoodAndVegetables() {
     ctx.setFocus(false);
-    console.log(h2VegetableText);
+    ctx.setVegetables(getItemNameRef.current.textContent);
   }
 
-  function getMeatAndFish() {}
-  function getPets() {}
-  function getBeverages() {}
+  function getMeatAndFish() {
+    ctx.setFocus(false);
+    ctx.setMeatAndFish(getMeatAndFishRef.current.textContent);
+  }
+
+  function getPets() {
+    ctx.setFocus(false);
+    ctx.setpets(getPetRef.current.textContent);
+  }
+
+  function getBeverages() {
+    ctx.setFocus(false);
+    ctx.setBeverages(getBeveragesRef.current.textContent);
+  }
 
   return (
     <>

@@ -14,6 +14,10 @@ function App() {
   const [randomImage, setRandomImage] = useState("");
   const [newPage, setNewPage] = useState(false);
   const [focus, setFocus] = useState(null);
+  const [beverages, setBeverages] = useState("");
+  const [vegetables, setVegetables] = useState("");
+  const [MeatAndFish, setMeatAndFish] = useState("");
+  const [pets, setpets] = useState("");
 
   function searchInput(item) {
     setSearchItem(item);
@@ -28,7 +32,16 @@ function App() {
     setNewPage: setNewPage,
     setFocus: setFocus,
     focus: focus,
+    setBeverages,
+    beverages,
+    MeatAndFish,
+    setMeatAndFish,
+    setpets,
+    pets,
+    setVegetables,
+    vegetables,
   };
+  console.log(vegetables, pets, MeatAndFish, beverages);
 
   return (
     <>
