@@ -3,6 +3,7 @@ import Classes from "../Sass/AddNewItem.module.scss";
 import AppWideContext from "../Context/AppContext";
 import axios from "axios";
 import ItemsPage from "./ItemsPage";
+import ShowCategory from "./modal/ShowCategory";
 
 const AddNewItem = () => {
   const [name, setName] = useState("");
@@ -57,11 +58,14 @@ const AddNewItem = () => {
           <h1>Add a new item</h1>
           <div className={Classes["nameItemContainer"]}>
             <label> Name</label>
-            <input
-              onChange={handleNameChangeHandler}
-              type="text"
-              placeholder="Enter an item name"
-            />
+            <div className={Classes["errorDiv"]}>
+              <input
+                onChange={handleNameChangeHandler}
+                type="text"
+                placeholder="Enter an item name"
+              />
+              {formIsValid && <p>Enter an item you want to add</p>}
+            </div>
           </div>
           <div className={Classes["noteItemContainer"]}>
             <label>Note(optional)</label>
@@ -78,6 +82,7 @@ const AddNewItem = () => {
               type="text"
               placeholder="Enter a Category"
             />
+            {ctx.focus && <ShowCategory />}
           </div>
           <div className={Classes["goBackContainer"]}>
             <button onClick={cancelPageHandler} className={Classes["cancel"]}>

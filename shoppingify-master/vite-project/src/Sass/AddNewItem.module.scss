@@ -65,6 +65,11 @@ textarea {
   letter-spacing: 1.2px;
   cursor: pointer;
 }
+.errorDiv p {
+  color: red;
+  margin-top: 0.2em;
+  font-weight: 800;
+}
 
 @media screen and (max-width: 678px) {
   .addewItemContainerSection {

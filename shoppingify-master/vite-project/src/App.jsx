@@ -27,6 +27,7 @@ function App() {
     newPage: newPage,
     setNewPage: setNewPage,
     setFocus: setFocus,
+    focus: focus,
   };
 
   return (
