@@ -106,7 +106,7 @@ const AddNewItem = () => {
           </div>
         </section>
       ) : (
-        <ItemsPage name={name} />
+        <ItemsPage nameValue={nameValue} name={name} />
       )}
     </>
   );

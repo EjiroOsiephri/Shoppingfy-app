@@ -41,7 +41,7 @@ const ItemsPage = (props) => {
           </div>
           <div className="category">
             <label>Category</label>
-            <h1></h1>
+            <h1>{props.nameValue}</h1>
           </div>
           <div className={Classes["buttonComponent"]}>
             <button className={Classes["delete"]} onClick={deleteItem}>
