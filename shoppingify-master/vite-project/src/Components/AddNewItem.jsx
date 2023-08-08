@@ -17,7 +17,7 @@ const AddNewItem = () => {
   const generateRandomImage = async () => {
     try {
       const response = await axios.get(
-        `https://api.unsplash.com/photos/random?query=${name}&client_id=09KkFHhOYOrfbUuQOR3nHRXexl_dyZBojiF033qpiuk`
+        `https://api.unsplash.com/photos/random?query=${name}&client_id=y0t72WfQUzbGz2yhqUqm26LureWNwpqR8pR2RtGqjYg`
       );
       setRandomImage(response.data.urls.small_s3);
     } catch (error) {

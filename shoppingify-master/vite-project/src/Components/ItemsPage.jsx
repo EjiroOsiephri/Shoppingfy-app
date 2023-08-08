@@ -29,6 +29,16 @@ const ItemsPage = (props) => {
             <label>name</label>
             <h1>{props.name}</h1>
           </div>
+          <div className={Classes["note"]}>
+            <label>note</label>
+            <h1>
+              Nutrient-dense foods are those that provide substantial amounts of
+              vitamins, minerals and other nutrients with relatively few
+              calories. One-third of a medium avocado (50 g) has 80 calories and
+              contributes nearly 20 vitamins and minerals, making it a great
+              nutrient-dense food choice.
+            </h1>
+          </div>
           <div className="category">
             <label>Category</label>
             <h1></h1>
