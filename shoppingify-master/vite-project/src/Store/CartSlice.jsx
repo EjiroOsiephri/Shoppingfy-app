@@ -171,6 +171,15 @@ const cartSlice = createSlice({
     addToFoodAndVegetables(state, action) {
       state.foodAndVegetables.push(action.payload);
     },
+    addToMeatAndFish(state, action) {
+      state.meatAndFish.push(action.payload);
+    },
+    addToPets(state, action) {
+      state.Pets.push(action.payload);
+    },
+    addToBeverages(state, action) {
+      state.beverages.push(action.payload);
+    },
   },
 });
 

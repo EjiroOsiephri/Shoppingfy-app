@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Classes from "../Sass/AddNewItem.module.scss";
 import AppWideContext from "../Context/AppContext";
 import axios from "axios";
@@ -58,6 +58,10 @@ const AddNewItem = () => {
     );
   }, [ctx.vegetables, ctx.MeatAndFish, ctx.pets, ctx.beverages]);
 
+  const addNewItemRef = useRef();
+
+  console.log(addNewItemRef.current?.value);
+
   return (
     <>
       {!ctx.newPage ? (
@@ -87,6 +91,7 @@ const AddNewItem = () => {
             <input
               onFocus={focusOnCursorHandler}
               type="text"
+              ref={addNewItemRef}
               value={nameValue}
               placeholder="Enter a Category"
             />
@@ -106,7 +111,11 @@ const AddNewItem = () => {
           </div>
         </section>
       ) : (
-        <ItemsPage nameValue={nameValue} name={name} />
+        <ItemsPage
+          addNewItemRef={addNewItemRef.current?.value}
+          nameValue={nameValue}
+          name={name}
+        />
       )}
     </>
   );

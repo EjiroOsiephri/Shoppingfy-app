@@ -11,10 +11,6 @@ const ItemsPage = (props) => {
 
   const dispatch = useDispatch();
 
-  const foodAndVegetables = useSelector(
-    (state) => state.cart.foodAndVegetables
-  );
-
   const navigate = useNavigate();
 
   function goBackToAddItemComponent() {
@@ -31,7 +27,18 @@ const ItemsPage = (props) => {
       name: props.name,
       id: dateString,
     };
-    dispatch(cartActions.addToFoodAndVegetables(newItem));
+    if (props.addNewItemRef === "Food and vegetables") {
+      dispatch(cartActions.addToFoodAndVegetables(newItem));
+    }
+    if (props.addNewItemRef === "Meat and Fish") {
+      dispatch(cartActions.addToMeatAndFish(newItem));
+    }
+    if (props.addNewItemRef === "Beverages") {
+      dispatch(cartActions.addToBeverages(newItem));
+    }
+    if (props.addNewItemRef === "Pets") {
+      dispatch(cartActions.addToPets(newItem));
+    }
   }
 
   return (
