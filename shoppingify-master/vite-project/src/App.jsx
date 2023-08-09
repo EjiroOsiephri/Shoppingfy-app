@@ -41,7 +41,6 @@ function App() {
     setVegetables,
     vegetables,
   };
-  console.log(vegetables, pets, MeatAndFish, beverages);
 
   return (
     <>

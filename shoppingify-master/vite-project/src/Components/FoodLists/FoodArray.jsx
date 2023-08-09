@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Classes from "../../Sass/FoodArray.module.scss";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../Store/CartSlice";
+import AppWideContext from "../../Context/AppContext";
 
 const FoodArray = (props) => {
+  const ctx = useContext(AppWideContext);
+
   const foodAndVegetables = [
     {
       title: "Food and vegetables",

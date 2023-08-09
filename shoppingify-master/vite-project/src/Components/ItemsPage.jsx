@@ -1,12 +1,17 @@
-import React, { useState } from "react";
 import AppWideContext from "../Context/AppContext";
 import { useContext } from "react";
 import Classes from "../Sass/itemPage.module.scss";
 import AddNewItem from "./AddNewItem";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const ItemsPage = (props) => {
   const ctx = useContext(AppWideContext);
+
+  const foodAndVegetables = useSelector(
+    (state) => state.cart.foodAndVegetables
+  );
+  console.log(foodAndVegetables);
 
   const navigate = useNavigate();
 
@@ -15,6 +20,10 @@ const ItemsPage = (props) => {
   }
   function deleteItem() {
     navigate("/");
+  }
+
+  function pushToArrayHandler() {
+    console.log("Ejieo");
   }
 
   return (
@@ -47,7 +56,9 @@ const ItemsPage = (props) => {
             <button className={Classes["delete"]} onClick={deleteItem}>
               delete
             </button>
-            <button className={Classes["add"]}>Add to lists</button>
+            <button onClick={pushToArrayHandler} className={Classes["add"]}>
+              Add to lists
+            </button>
           </div>
         </section>
       ) : (
