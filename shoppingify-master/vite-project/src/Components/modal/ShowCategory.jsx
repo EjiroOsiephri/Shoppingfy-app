@@ -5,11 +5,6 @@ import AppWideContext from "../../Context/AppContext";
 const ShowCategory = () => {
   const ctx = useContext(AppWideContext);
 
-  const [beverages, setBeverages] = useState("");
-  const [vegetables, setVegetables] = useState("");
-  const [MeatAndFish, setMeatAndFish] = useState("");
-  const [pets, setpets] = useState("");
-
   const getItemNameRef = useRef(null);
   const getBeveragesRef = useRef(null);
   const getMeatAndFishRef = useRef(null);
