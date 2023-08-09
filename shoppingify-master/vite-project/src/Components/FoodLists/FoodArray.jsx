@@ -9,7 +9,7 @@ const FoodArray = (props) => {
   );
   const meatAndFish = useSelector((state) => state.cart.meatAndFish || []);
   const beverages = useSelector((state) => state.cart.beverages || []);
-  const Pets = useSelector((state) => state.cart.pets || []);
+  const Pets = useSelector((state) => state.cart.Pets || []);
 
   const dispatch = useDispatch();
 

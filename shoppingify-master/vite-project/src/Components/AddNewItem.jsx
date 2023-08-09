@@ -52,12 +52,6 @@ const AddNewItem = () => {
     formIsValid = true;
   }
 
-  useEffect(() => {
-    setNameValue(
-      ctx.vegetables || ctx.MeatAndFish || ctx.pets || ctx.beverages
-    );
-  }, [ctx.vegetables, ctx.MeatAndFish, ctx.pets, ctx.beverages]);
-
   const addNewItemRef = useRef();
 
   console.log(addNewItemRef.current?.value);
@@ -92,7 +86,7 @@ const AddNewItem = () => {
               onFocus={focusOnCursorHandler}
               type="text"
               ref={addNewItemRef}
-              value={nameValue}
+              value={ctx.selectedCategory}
               placeholder="Enter a Category"
             />
             {ctx.focus && <ShowCategory />}
@@ -113,7 +107,7 @@ const AddNewItem = () => {
       ) : (
         <ItemsPage
           addNewItemRef={addNewItemRef.current?.value}
-          nameValue={nameValue}
+          nameValue={ctx.selectedCategory}
           name={name}
         />
       )}

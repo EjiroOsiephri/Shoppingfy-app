@@ -18,6 +18,7 @@ function App() {
   const [vegetables, setVegetables] = useState("");
   const [MeatAndFish, setMeatAndFish] = useState("");
   const [pets, setpets] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   function searchInput(item) {
     setSearchItem(item);
@@ -40,6 +41,8 @@ function App() {
     pets,
     setVegetables,
     vegetables,
+    selectedCategory,
+    setSelectedCategory,
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef } from "react";
 import Classes from "../../Sass/ShowCategory.module.scss";
 import AppWideContext from "../../Context/AppContext";
 
@@ -10,39 +10,33 @@ const ShowCategory = () => {
   const getMeatAndFishRef = useRef(null);
   const getPetRef = useRef(null);
 
-  function getFoodAndVegetables() {
+  function setSelectedCategory(category) {
     ctx.setFocus(false);
-    ctx.setVegetables(getItemNameRef.current.textContent);
-  }
-
-  function getMeatAndFish() {
-    ctx.setFocus(false);
-    ctx.setMeatAndFish(getMeatAndFishRef.current.textContent);
-  }
-
-  function getPets() {
-    ctx.setFocus(false);
-    ctx.setpets(getPetRef.current.textContent);
-  }
-
-  function getBeverages() {
-    ctx.setFocus(false);
-    ctx.setBeverages(getBeveragesRef.current.textContent);
+    ctx.setSelectedCategory(category);
   }
 
   return (
     <>
       <div className={Classes["showCategory"]}>
-        <h2 onClick={getFoodAndVegetables} ref={getItemNameRef}>
+        <h2
+          onClick={() => setSelectedCategory("Food and vegetables")}
+          ref={getItemNameRef}
+        >
           Food and vegetables
         </h2>
-        <h2 onClick={getMeatAndFish} ref={getMeatAndFishRef}>
+        <h2
+          onClick={() => setSelectedCategory("Meat and Fish")}
+          ref={getMeatAndFishRef}
+        >
           Meat and Fish
         </h2>
-        <h2 onClick={getBeverages} ref={getBeveragesRef}>
+        <h2
+          onClick={() => setSelectedCategory("Beverages")}
+          ref={getBeveragesRef}
+        >
           Beverages
         </h2>
-        <h2 onClick={getPets} ref={getPetRef}>
+        <h2 onClick={() => setSelectedCategory("Pets")} ref={getPetRef}>
           Pets
         </h2>
       </div>
