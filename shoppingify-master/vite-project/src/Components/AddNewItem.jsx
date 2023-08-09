@@ -8,12 +8,19 @@ import ShowCategory from "./modal/ShowCategory";
 const AddNewItem = () => {
   const [name, setName] = useState("");
   const [randomImage, setRandomImage] = useState("");
-  const [nameValue, setNameValue] = useState("");
+  const [imageValue, setImageValue] = useState("");
+  const [showCategoryError, setShowCategoryError] = useState(false);
+
+  const addNewItemRef = useRef();
 
   const ctx = useContext(AppWideContext);
 
   const cancelPageHandler = () => {
     ctx.setShowNewItem(false);
+  };
+
+  const categoryChangeHandler = (e) => {
+    setImageValue(e.target.value);
   };
 
   const generateRandomImage = async () => {
@@ -36,6 +43,13 @@ const AddNewItem = () => {
   }, [name]);
 
   function navigatePage() {
+    if (addNewItemRef.length.trim() < 1) {
+      setShowCategoryError(true);
+      return;
+    }
+    if (imageValue.length.trim() < 1) {
+      return;
+    }
     ctx.setRandomImage(randomImage);
     ctx.setNewPage(true);
   }
@@ -51,10 +65,6 @@ const AddNewItem = () => {
   if (nameIsValid) {
     formIsValid = true;
   }
-
-  const addNewItemRef = useRef();
-
-  console.log(addNewItemRef.current?.value);
 
   return (
     <>
@@ -84,11 +94,13 @@ const AddNewItem = () => {
             <label>Category</label>
             <input
               onFocus={focusOnCursorHandler}
+              onChange={categoryChangeHandler}
               type="text"
               ref={addNewItemRef}
               value={ctx.selectedCategory}
               placeholder="Enter a Category"
             />
+            {showCategoryError && <p>Enter a category</p>}
             {ctx.focus && <ShowCategory />}
           </div>
           <div className={Classes["goBackContainer"]}>
