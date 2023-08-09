@@ -168,6 +168,9 @@ const cartSlice = createSlice({
         existingItem.quantity--;
       }
     },
+    addToFoodAndVegetables(state, action) {
+      state.foodAndVegetables.push(action.payload);
+    },
   },
 });
 

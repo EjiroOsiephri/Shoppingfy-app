@@ -3,15 +3,17 @@ import { useContext } from "react";
 import Classes from "../Sass/itemPage.module.scss";
 import AddNewItem from "./AddNewItem";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../Store/CartSlice";
 
 const ItemsPage = (props) => {
   const ctx = useContext(AppWideContext);
 
+  const dispatch = useDispatch();
+
   const foodAndVegetables = useSelector(
     (state) => state.cart.foodAndVegetables
   );
-  console.log(foodAndVegetables);
 
   const navigate = useNavigate();
 
@@ -23,7 +25,13 @@ const ItemsPage = (props) => {
   }
 
   function pushToArrayHandler() {
-    console.log("Ejieo");
+    const currentDate = new Date();
+    const dateString = currentDate.toISOString();
+    const newItem = {
+      name: props.name,
+      id: dateString,
+    };
+    dispatch(cartActions.addToFoodAndVegetables(newItem));
   }
 
   return (
