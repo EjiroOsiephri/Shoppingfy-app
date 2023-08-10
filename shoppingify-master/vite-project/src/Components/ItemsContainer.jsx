@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Classes from "../Sass/ItemsContainer.module.scss";
 import Source from "../assets/source.svg";
 import EmptyCart from "../assets/shop.svg";
@@ -46,6 +46,12 @@ const ItemsContainer = (props) => {
     ctx.setShowNewItem(true);
   };
 
+  const handleCheckboxChange = (e) => {
+    ctx.setIsChecked(e.target.checked);
+  };
+
+  console.log(ctx.isChecked);
+
   return (
     <>
       {ctx.showNewItem ? (
@@ -89,8 +95,22 @@ const ItemsContainer = (props) => {
                       <h1>{item.title}</h1>
                       <div className={Classes["item-container-name"]}>
                         <div className={Classes["item-name"]}>
-                          <input type="checkbox" />
-                          <h1>{item.name}</h1>
+                          <input
+                            checked={ctx.isChecked}
+                            onChange={handleCheckboxChange}
+                            type="checkbox"
+                          />
+                          <h1
+                            style={
+                              ctx.isChecked
+                                ? {
+                                    textDecoration: "lineThrough",
+                                  }
+                                : {}
+                            }
+                          >
+                            {item.name}
+                          </h1>
                         </div>
                         <h2>
                           {`${item.quantity}pcs`}{" "}

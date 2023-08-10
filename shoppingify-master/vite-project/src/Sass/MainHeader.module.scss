@@ -33,7 +33,6 @@
   margin-right: 1em;
 }
 .main-header {
-  display: flex;
   margin-top: 30px;
   margin-left: 2em;
 }
@@ -45,10 +44,10 @@
   padding: 30px;
   border: none;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-  margin-top: -0.9em;
+  margin-top: 0.9em;
   margin-right: 1rem;
 }
-@media screen and (max-width: 506px) {
+@media screen and (max-width: 767px) {
   .main-header {
     flex-direction: column;
     margin-left: 12px;
@@ -69,7 +68,7 @@
     width: 90%;
   }
 }
-@media screen and (min-width: 507px) and (max-width: 900px) {
+@media screen and (min-width: 768px) and (max-width: 900px) {
   .main-header {
     margin-left: 10px;
   }

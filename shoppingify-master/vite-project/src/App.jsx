@@ -20,6 +20,7 @@ function App() {
   const [pets, setpets] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [categoryError, setCategoryError] = useState(true);
+  const [isChecked, setIsChecked] = useState(false);
 
   function searchInput(item) {
     setSearchItem(item);
@@ -46,6 +47,8 @@ function App() {
     setSelectedCategory,
     categoryError,
     setCategoryError,
+    isChecked,
+    setIsChecked,
   };
 
   return (

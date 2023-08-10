@@ -4,7 +4,7 @@ import appLogo from "../assets/logo.svg";
 import poll from "../assets/poll.svg";
 import rotate from "../assets/rotate.svg";
 import lists from "../assets/list.svg";
-import Cart from "../assets/cart.png";
+import Cart from "../assets/cart.svg";
 import { useSelector } from "react-redux";
 
 const SideBar = (props) => {
