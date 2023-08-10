@@ -42,12 +42,13 @@ const AddNewItem = () => {
     generateRandomImage();
   }, [name]);
 
+  const categoryErrorHandler = addNewItemRef.current?.value.trim() === "";
+
+  console.log(addNewItemRef.current?.value);
+
   function navigatePage() {
-    if (addNewItemRef.length.trim() < 1) {
+    if (categoryErrorHandler) {
       setShowCategoryError(true);
-      return;
-    }
-    if (imageValue.length.trim() < 1) {
       return;
     }
     ctx.setRandomImage(randomImage);

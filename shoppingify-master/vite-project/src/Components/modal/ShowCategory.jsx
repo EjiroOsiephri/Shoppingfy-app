@@ -1,9 +1,13 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import Classes from "../../Sass/ShowCategory.module.scss";
 import AppWideContext from "../../Context/AppContext";
 
 const ShowCategory = () => {
   const ctx = useContext(AppWideContext);
+  const [beverages, setBeverages] = useState(false);
+  const [vegetables, setVegetables] = useState(false);
+  const [MeatAndFish, setMeatAndFish] = useState(false);
+  const [pets, setpets] = useState(false);
 
   const getItemNameRef = useRef(null);
   const getBeveragesRef = useRef(null);
@@ -15,30 +19,106 @@ const ShowCategory = () => {
     ctx.setSelectedCategory(category);
   }
 
+  function setDivVegetables(params) {
+    setVegetables(true);
+  }
+
+  function setDivMeat(params) {
+    setMeatAndFish(true);
+  }
+
+  function setDivBeverages(params) {
+    setBeverages(true);
+  }
+
+  function setDivPets(params) {
+    setpets(true);
+  }
+
   return (
     <>
       <div className={Classes["showCategory"]}>
-        <h2
-          onClick={() => setSelectedCategory("Food and vegetables")}
-          ref={getItemNameRef}
+        <div
+          style={
+            vegetables
+              ? {
+                  width: "294.3620300292969px",
+                  height: "46.78712844848633px",
+                  borderRadius: "12px",
+                  background: "rgba(242, 242, 242, 1)",
+                }
+              : {}
+          }
+          onClick={setDivVegetables}
+          className={Classes["foodAndVegetables"]}
         >
-          Food and vegetables
-        </h2>
-        <h2
-          onClick={() => setSelectedCategory("Meat and Fish")}
-          ref={getMeatAndFishRef}
+          <h2
+            onClick={() => setSelectedCategory("Food and vegetables")}
+            ref={getItemNameRef}
+          >
+            Food and vegetables
+          </h2>
+        </div>
+        <div
+          style={
+            MeatAndFish
+              ? {
+                  width: "294.3620300292969px",
+                  height: "46.78712844848633px",
+                  borderRadius: "12px",
+                  background: "rgba(242, 242, 242, 1)",
+                }
+              : {}
+          }
+          onClick={setDivMeat}
+          className={Classes["meatAndFish"]}
         >
-          Meat and Fish
-        </h2>
-        <h2
-          onClick={() => setSelectedCategory("Beverages")}
-          ref={getBeveragesRef}
+          <h2
+            onClick={() => setSelectedCategory("Meat and Fish")}
+            ref={getMeatAndFishRef}
+          >
+            Meat and Fish
+          </h2>
+        </div>
+        <div
+          style={
+            beverages
+              ? {
+                  width: "294.3620300292969px",
+                  height: "46.78712844848633px",
+                  borderRadius: "12px",
+                  background: "rgba(242, 242, 242, 1)",
+                }
+              : {}
+          }
+          onClick={setDivBeverages}
+          className={Classes["beverages"]}
         >
-          Beverages
-        </h2>
-        <h2 onClick={() => setSelectedCategory("Pets")} ref={getPetRef}>
-          Pets
-        </h2>
+          <h2
+            onClick={() => setSelectedCategory("Beverages")}
+            ref={getBeveragesRef}
+          >
+            Beverages
+          </h2>
+        </div>
+        <div
+          style={
+            pets
+              ? {
+                  width: "294.3620300292969px",
+                  height: "46.78712844848633px",
+                  borderRadius: "12px",
+                  background: "rgba(242, 242, 242, 1)",
+                }
+              : {}
+          }
+          onClick={setDivPets}
+          className={Classes["pets"]}
+        >
+          <h2 onClick={() => setSelectedCategory("Pets")} ref={getPetRef}>
+            Pets
+          </h2>
+        </div>
       </div>
     </>
   );

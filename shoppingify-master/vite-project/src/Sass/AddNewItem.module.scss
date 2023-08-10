@@ -68,7 +68,12 @@ textarea {
 .errorDiv p {
   color: red;
   margin-top: 0.2em;
-  font-weight: 800;
+  font-weight: 600;
+}
+.categoryItemContainer p {
+  color: red;
+  margin-top: 0.2em;
+  font-weight: 600;
 }
 
 @media screen and (max-width: 678px) {

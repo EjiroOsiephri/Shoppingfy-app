@@ -12,3 +12,15 @@
   margin-bottom: 0.7em;
   cursor: pointer;
 }
+.showCategory h2:hover {
+  padding-left: 0.9em;
+}
+
+.showCategory div:hover,
+.showCategory div:focus,
+.showCategory div:active {
+  width: 294.3620300292969px;
+  height: 46.78712844848633px;
+  border-radius: 12px;
+  background: rgba(242, 242, 242, 1);
+}

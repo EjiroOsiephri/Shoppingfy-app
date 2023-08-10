@@ -11,13 +11,29 @@ const ItemsPage = (props) => {
 
   const dispatch = useDispatch();
 
-  const navigate = useNavigate();
-
   function goBackToAddItemComponent() {
     ctx.setNewPage(false);
   }
   function deleteItem() {
-    navigate("/");
+    const currentDate = new Date();
+    const dateString = currentDate.toISOString();
+    const newItem = {
+      name: props.name,
+      id: dateString,
+    };
+    if (props.addNewItemRef === "Food and vegetables") {
+      dispatch(cartActions.removeFoodAndVegetables(newItem));
+    }
+    if (props.addNewItemRef === "Meat and Fish") {
+      dispatch(cartActions.removeMeatAndFish(newItem));
+    }
+    if (props.addNewItemRef === "Beverages") {
+      dispatch(cartActions.removeBeverages(newItem));
+    }
+    if (props.addNewItemRef === "Pets") {
+      dispatch(cartActions.removePets(newItem));
+    }
+    ctx.setShowNewItem(false);
   }
 
   function pushToArrayHandler() {
@@ -39,6 +55,7 @@ const ItemsPage = (props) => {
     if (props.addNewItemRef === "Pets") {
       dispatch(cartActions.addToPets(newItem));
     }
+    ctx.setShowNewItem(false);
   }
 
   return (
@@ -53,6 +70,10 @@ const ItemsPage = (props) => {
             <label>name</label>
             <h1>{props.name}</h1>
           </div>
+          <div className={Classes["category"]}>
+            <label>Category</label>
+            <h1>{props.nameValue}</h1>
+          </div>
           <div className={Classes["note"]}>
             <label>note</label>
             <h1>
@@ -62,10 +83,6 @@ const ItemsPage = (props) => {
               contributes nearly 20 vitamins and minerals, making it a great
               nutrient-dense food choice.
             </h1>
-          </div>
-          <div className="category">
-            <label>Category</label>
-            <h1>{props.nameValue}</h1>
           </div>
           <div className={Classes["buttonComponent"]}>
             <button className={Classes["delete"]} onClick={deleteItem}>
