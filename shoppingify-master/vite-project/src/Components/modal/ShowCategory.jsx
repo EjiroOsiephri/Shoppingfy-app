@@ -19,20 +19,24 @@ const ShowCategory = () => {
     ctx.setSelectedCategory(category);
   }
 
-  function setDivVegetables(params) {
+  function setDivVegetables() {
     setVegetables(true);
+    ctx.setCategoryError(false);
   }
 
-  function setDivMeat(params) {
+  function setDivMeat() {
     setMeatAndFish(true);
+    ctx.setCategoryError(false);
   }
 
-  function setDivBeverages(params) {
+  function setDivBeverages() {
     setBeverages(true);
+    ctx.setCategoryError(false);
   }
 
-  function setDivPets(params) {
+  function setDivPets() {
     setpets(true);
+    ctx.setCategoryError(false);
   }
 
   return (

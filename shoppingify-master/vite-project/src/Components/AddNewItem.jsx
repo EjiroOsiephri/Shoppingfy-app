@@ -42,15 +42,17 @@ const AddNewItem = () => {
     generateRandomImage();
   }, [name]);
 
-  const categoryErrorHandler = addNewItemRef.current?.value.trim() === "";
+  let formIsValid = true;
 
-  console.log(addNewItemRef.current?.value);
+  const nameIsInvalid = name.trim() === "";
+
+  if (nameIsInvalid && ctx.categoryError) {
+    formIsValid = false;
+  } else {
+    formIsValid = true;
+  }
 
   function navigatePage() {
-    if (categoryErrorHandler) {
-      setShowCategoryError(true);
-      return;
-    }
     ctx.setRandomImage(randomImage);
     ctx.setNewPage(true);
   }
@@ -58,14 +60,6 @@ const AddNewItem = () => {
   const focusOnCursorHandler = () => {
     ctx.setFocus((prevValue) => !prevValue);
   };
-
-  let formIsValid = false;
-
-  const nameIsValid = name.trim() === "";
-
-  if (nameIsValid) {
-    formIsValid = true;
-  }
 
   return (
     <>
@@ -80,7 +74,7 @@ const AddNewItem = () => {
                 type="text"
                 placeholder="Enter an item name"
               />
-              {formIsValid && <p>Enter an item you want to add</p>}
+              {!formIsValid && <p>Enter an item you want to add</p>}
             </div>
           </div>
           <div className={Classes["noteItemContainer"]}>
@@ -101,7 +95,7 @@ const AddNewItem = () => {
               value={ctx.selectedCategory}
               placeholder="Enter a Category"
             />
-            {showCategoryError && <p>Enter a category</p>}
+            {ctx.categoryError && <p>Enter a category</p>}
             {ctx.focus && <ShowCategory />}
           </div>
           <div className={Classes["goBackContainer"]}>
@@ -109,7 +103,7 @@ const AddNewItem = () => {
               cancel
             </button>
             <button
-              disabled={formIsValid}
+              disabled={!formIsValid}
               onClick={navigatePage}
               className={Classes["save"]}
             >

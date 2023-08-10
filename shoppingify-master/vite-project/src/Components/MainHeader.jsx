@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Classes from "../Sass/MainHeader.module.scss";
 import FoodArray from "./FoodLists/FoodArray";
-import ArrayContext from "../Context/ArrayContext";
+import searchImg from "../assets/search.svg";
 
 const MainHeader = (props) => {
   const handleInputValue = (e) => {

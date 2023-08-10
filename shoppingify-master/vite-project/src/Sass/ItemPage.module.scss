@@ -81,6 +81,12 @@
 @media screen and (max-width: 678px) {
   .itemsPage {
     width: 100vw;
+    overflow-x: auto;
+  }
+  .note h1 {
+    font-size: 15px;
+    max-width: 290px;
+    margin-bottom: 2.5em;
   }
   .nameItemImage img {
     object-fit: cover;
