@@ -143,6 +143,13 @@ const cartSlice = createSlice({
     Pets,
   },
   reducers: {
+    toggleItemCheckbox(state, action) {
+      const itemId = action.payload;
+      const item = state.items.find((item) => item.id === itemId);
+      if (item) {
+        item.isChecked = !item.isChecked;
+      }
+    },
     addItemToCart(state, action) {
       const newItem = action.payload;
       const existingItem = state.items.find((item) => item.id === newItem.id);
@@ -153,6 +160,7 @@ const cartSlice = createSlice({
           name: newItem.name,
           quantity: 1,
           title: newItem.title,
+          isChecked: false,
         });
       } else {
         existingItem.quantity++;
