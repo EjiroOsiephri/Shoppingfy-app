@@ -6,6 +6,11 @@
   padding: 10px;
 }
 
+.checkmark:after {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+}
+
 .AddItemToCartContainer {
   display: flex;
   margin: 2rem 0 3em 1rem;

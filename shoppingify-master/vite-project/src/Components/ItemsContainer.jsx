@@ -46,11 +46,10 @@ const ItemsContainer = (props) => {
     ctx.setShowNewItem(true);
   };
 
-  const handleCheckboxChange = (itemId) => {
+  const handleCheckboxChange = (itemId, isChecked) => {
+    console.log(!isChecked);
     dispatch(cartActions.toggleItemCheckbox(itemId));
   };
-
-  console.log(state);
 
   return (
     <>
@@ -97,7 +96,9 @@ const ItemsContainer = (props) => {
                         <div className={Classes["item-name"]}>
                           <input
                             checked={item.isChecked}
-                            onChange={() => handleCheckboxChange(item.id)}
+                            onChange={() =>
+                              handleCheckboxChange(item.id, item.isChecked)
+                            }
                             type="checkbox"
                           />
                           <h1
