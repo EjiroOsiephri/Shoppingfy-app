@@ -104,7 +104,7 @@ const ItemsContainer = (props) => {
                             style={
                               ctx.isChecked
                                 ? {
-                                    textDecoration: "lineThrough",
+                                    textDecoration: "line-through",
                                   }
                                 : {}
                             }
