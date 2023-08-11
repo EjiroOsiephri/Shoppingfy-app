@@ -132,11 +132,21 @@ const Pets = [
   },
 ];
 
+let cartItems =
+  localStorage.getItem("cartItems") !== null
+    ? JSON.parse(localStorage.getItem("cartItems"))
+    : [];
+
+let totalQuantity =
+  localStorage.getItem("totalCartQuantity") !== null
+    ? JSON.parse(localStorage.getItem("totalCartQuantity"))
+    : 0;
+
 const cartSlice = createSlice({
   name: "Cart",
   initialState: {
-    items: [],
-    totalCartQuantity: 0,
+    items: cartItems,
+    totalCartQuantity: totalQuantity,
     foodAndVegetables,
     meatAndFish,
     beverages,
@@ -165,6 +175,14 @@ const cartSlice = createSlice({
       } else {
         existingItem.quantity++;
       }
+      localStorage.setItem(
+        "cartItems",
+        JSON.stringify(state.items.map((item) => item))
+      );
+      localStorage.setItem(
+        "totalCartQuantity",
+        JSON.stringify(state.totalCartQuantity)
+      );
     },
     removeItemFromCart(state, action) {
       const id = action.payload;
@@ -175,6 +193,14 @@ const cartSlice = createSlice({
       } else {
         existingItem.quantity--;
       }
+      localStorage.setItem(
+        "cartItems",
+        JSON.stringify(state.items.map((item) => item))
+      );
+      localStorage.setItem(
+        "totalCartQuantity",
+        JSON.stringify(state.totalCartQuantity)
+      );
     },
     addToFoodAndVegetables(state, action) {
       state.foodAndVegetables.push(action.payload);
