@@ -50,8 +50,6 @@ const ItemsContainer = (props) => {
     ctx.setIsChecked(e.target.checked);
   };
 
-  console.log(ctx.isChecked);
-
   return (
     <>
       {ctx.showNewItem ? (

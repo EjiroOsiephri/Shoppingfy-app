@@ -35,11 +35,25 @@ const ItemsPage = (props) => {
     }
     ctx.setShowNewItem(false);
   }
+  let title;
 
   function pushToArrayHandler() {
     const currentDate = new Date();
     const dateString = currentDate.toISOString();
+    if (props.addNewItemRef === "Food and vegetables") {
+      title = "Food and vegetables";
+    }
+    if (props.addNewItemRef === "Meat and Fish") {
+      title = "Meat and Fish";
+    }
+    if (props.addNewItemRef === "Beverages") {
+      title = "Beverages";
+    }
+    if (props.addNewItemRef === "Pets") {
+      title = "Pets";
+    }
     const newItem = {
+      title: title,
       name: props.name,
       id: dateString,
     };
