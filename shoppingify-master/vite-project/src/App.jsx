@@ -2,7 +2,7 @@ import SideBar from "./Components/SideBar";
 import MainHeader from "./Components/MainHeader";
 import "./app.scss";
 import ItemsContainer from "./Components/ItemsContainer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AppWideContext from "./Context/AppContext";
 import { Routes, Route } from "react-router-dom";
 import ShoppingMain from "./Components/shoppinghistory/ShoppingMain";
@@ -22,6 +22,18 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [categoryError, setCategoryError] = useState(true);
   const [isChecked, setIsChecked] = useState(false);
+  const [historyTitle, setHistoryTitle] = useState("");
+
+  const [allItemsInHistoryArray, setAllItemsInHistoryArray] = useState([]);
+
+  useEffect(() => {
+    if (historyTitle !== "") {
+      setAllItemsInHistoryArray((prevArray) => [...prevArray, historyTitle]);
+      setHistoryTitle("");
+    }
+  }, [historyTitle]);
+
+  console.log(allItemsInHistoryArray);
 
   function searchInput(item) {
     setSearchItem(item);
@@ -50,6 +62,8 @@ function App() {
     setCategoryError,
     isChecked,
     setIsChecked,
+    historyTitle,
+    setHistoryTitle,
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Classes from "../Sass/ItemsContainer.module.scss";
 import Source from "../assets/source.svg";
 import EmptyCart from "../assets/shop.svg";
@@ -8,6 +8,7 @@ import { cartActions } from "../Store/CartSlice";
 import { useContext } from "react";
 import AppWideContext from "../Context/AppContext";
 import AddNewItem from "./AddNewItem";
+import { useNavigate } from "react-router-dom";
 
 const ItemsContainer = (props) => {
   const state = useSelector((state) => state.cart.items);
@@ -15,6 +16,8 @@ const ItemsContainer = (props) => {
   const ctx = useContext(AppWideContext);
 
   const dispatch = useDispatch();
+
+  const navigate = useNavigate("/");
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -49,6 +52,13 @@ const ItemsContainer = (props) => {
   const handleCheckboxChange = (itemId, isChecked) => {
     console.log(!isChecked);
     dispatch(cartActions.toggleItemCheckbox(itemId));
+  };
+
+  const historyNameHandler = useRef();
+
+  const showHistory = () => {
+    ctx.setHistoryTitle(historyNameHandler?.current?.value);
+    navigate("/shopping-history");
   };
 
   return (
@@ -144,6 +154,7 @@ const ItemsContainer = (props) => {
             className={Classes["enterFoodItem"]}
           >
             <input
+              ref={historyNameHandler}
               style={
                 props.cartItems
                   ? {
@@ -156,6 +167,7 @@ const ItemsContainer = (props) => {
               placeholder="Enter a name"
             />
             <button
+              onClick={showHistory}
               style={
                 props.cartItems
                   ? {

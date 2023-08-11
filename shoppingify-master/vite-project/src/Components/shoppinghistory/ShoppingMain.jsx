@@ -4,14 +4,14 @@ import ItemsContainer from "../ItemsContainer";
 import Classses from "../../Sass/ShoppingMain.module.scss";
 import ShoppingList from "./ShoppingList";
 
-const ShoppingMain = () => {
+const ShoppingMain = (props) => {
   const [cartItems, setCartItems] = useState(false);
   const [showCart, setShowCart] = useState(false);
   return (
     <>
       <main className={Classses["main-shopping"]}>
         <SideBar setShowCart={setShowCart} />
-        <ShoppingList />
+        <ShoppingList allItemsInHistoryArray={props.allItemsInHistoryArray} />
         <ItemsContainer
           showCart={showCart}
           cartItems={cartItems}
