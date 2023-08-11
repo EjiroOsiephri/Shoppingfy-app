@@ -43,6 +43,8 @@ function App() {
     }
   }, [historyTitle]);
 
+  console.log(allItemsInHistoryArray);
+
   function searchInput(item) {
     setSearchItem(item);
   }
