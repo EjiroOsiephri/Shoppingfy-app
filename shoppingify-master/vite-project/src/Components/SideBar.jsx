@@ -6,12 +6,18 @@ import rotate from "../assets/rotate.svg";
 import lists from "../assets/list.svg";
 import Cart from "../assets/cart.svg";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const SideBar = (props) => {
   const state = useSelector((state) => state.cart.totalCartQuantity);
+  const navigate = useNavigate();
 
   const cartRenderHandler = () => {
     props.setShowCart((prevCart) => !prevCart);
+  };
+
+  const navigateToShoppingHistory = () => {
+    navigate("/shopping-history");
   };
 
   return (
@@ -22,7 +28,7 @@ const SideBar = (props) => {
         </div>
         <div className={Classes.navigatePages}>
           <img src={poll} alt="" />
-          <img src={rotate} alt="" />
+          <img onClick={navigateToShoppingHistory} src={rotate} alt="" />
           <img onClick={cartRenderHandler} src={lists} alt="" />
         </div>
         <div onClick={cartRenderHandler} className={Classes.cartItems}>

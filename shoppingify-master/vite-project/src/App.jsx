@@ -5,6 +5,7 @@ import ItemsContainer from "./Components/ItemsContainer";
 import { useState } from "react";
 import AppWideContext from "./Context/AppContext";
 import { Routes, Route } from "react-router-dom";
+import ShoppingMain from "./Components/shoppinghistory/ShoppingMain";
 
 function App() {
   const [searchInputItem, setSearchItem] = useState("");
@@ -76,6 +77,7 @@ function App() {
               </main>
             }
           />
+          <Route element={<ShoppingMain />} path="/shopping-history" />
         </Routes>
       </AppWideContext.Provider>
     </>
