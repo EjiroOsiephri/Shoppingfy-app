@@ -13,6 +13,7 @@ const SideBar = (props) => {
   const navigate = useNavigate();
 
   const cartRenderHandler = () => {
+    navigate("/");
     props.setShowCart((prevCart) => !prevCart);
   };
 

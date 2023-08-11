@@ -26,14 +26,22 @@ function App() {
 
   const [allItemsInHistoryArray, setAllItemsInHistoryArray] = useState([]);
 
+  const date = new Date();
+
+  const currentDate = date.toISOString();
+
   useEffect(() => {
     if (historyTitle !== "") {
-      setAllItemsInHistoryArray((prevArray) => [...prevArray, historyTitle]);
+      setAllItemsInHistoryArray((prevArray) => [
+        ...prevArray,
+        {
+          historyTitle,
+          currentDate,
+        },
+      ]);
       setHistoryTitle("");
     }
   }, [historyTitle]);
-
-  console.log(allItemsInHistoryArray);
 
   function searchInput(item) {
     setSearchItem(item);
@@ -64,6 +72,7 @@ function App() {
     setIsChecked,
     historyTitle,
     setHistoryTitle,
+    allItemsInHistoryArray,
   };
 
   return (
