@@ -142,15 +142,35 @@ let totalQuantity =
     ? JSON.parse(localStorage.getItem("totalCartQuantity"))
     : 0;
 
+let foodAndVeggies =
+  localStorage.getItem("foodAndVeggies") !== null
+    ? JSON.parse(localStorage.getItem("foodAndVeggies"))
+    : foodAndVegetables;
+
+let chickenAndFish =
+  localStorage.getItem("meatAndFish") !== null
+    ? JSON.parse(localStorage.getItem("meatAndFish"))
+    : meatAndFish;
+
+let beverage =
+  localStorage.getItem("beverages") !== null
+    ? JSON.parse(localStorage.getItem("beverages"))
+    : beverages;
+
+let pet =
+  localStorage.getItem("Pets") !== null
+    ? JSON.parse(localStorage.getItem("Pets"))
+    : Pets;
+
 const cartSlice = createSlice({
   name: "Cart",
   initialState: {
     items: cartItems,
     totalCartQuantity: totalQuantity,
-    foodAndVegetables,
-    meatAndFish,
-    beverages,
-    Pets,
+    foodAndVegetables: foodAndVeggies,
+    meatAndFish: chickenAndFish,
+    beverages: beverage,
+    Pets: pet,
   },
   reducers: {
     toggleItemCheckbox(state, action) {
@@ -204,27 +224,25 @@ const cartSlice = createSlice({
     },
     addToFoodAndVegetables(state, action) {
       state.foodAndVegetables.push(action.payload);
+      localStorage.setItem(
+        "foodAndVeggies",
+        JSON.stringify(state.foodAndVegetables)
+      );
     },
-    removeFoodAndVegetables(state, action) {
-      state.foodAndVegetables.pop(action.payload);
-    },
+
     addToMeatAndFish(state, action) {
       state.meatAndFish.push(action.payload);
+      localStorage.setItem("meatAndFish", JSON.stringify(state.meatAndFish));
     },
-    removeMeatAndFish(state, action) {
-      state.meatAndFish.pop(action.payload);
-    },
+
     addToPets(state, action) {
       state.Pets.push(action.payload);
+      localStorage.setItem("Pets", JSON.stringify(state.Pets));
     },
-    removePets(state, action) {
-      state.Pets.pop(action.payload);
-    },
+
     addToBeverages(state, action) {
       state.beverages.push(action.payload);
-    },
-    removeBeverages(state, action) {
-      state.beverages.pop(action.payload);
+      localStorage.setItem("beverages", JSON.stringify(state.beverages));
     },
   },
 });
