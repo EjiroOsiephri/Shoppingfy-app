@@ -24,7 +24,18 @@ function App() {
   const [isChecked, setIsChecked] = useState(false);
   const [historyTitle, setHistoryTitle] = useState("");
 
-  const [allItemsInHistoryArray, setAllItemsInHistoryArray] = useState([]);
+  const [allItemsInHistoryArray, setAllItemsInHistoryArray] = useState(
+    localStorage.getItem("allItemsHistory")
+      ? JSON.parse(localStorage.getItem("allItemsHistory"))
+      : []
+  );
+
+  useEffect(() => {
+    localStorage.setItem(
+      "allItemsHistory",
+      JSON.stringify(allItemsInHistoryArray)
+    );
+  }, [allItemsInHistoryArray]);
 
   const date = new Date();
 
@@ -42,8 +53,6 @@ function App() {
       setHistoryTitle("");
     }
   }, [historyTitle]);
-
-  console.log(allItemsInHistoryArray);
 
   function searchInput(item) {
     setSearchItem(item);

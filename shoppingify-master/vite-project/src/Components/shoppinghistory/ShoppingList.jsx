@@ -3,6 +3,7 @@ import AppWideContext from "../../Context/AppContext";
 
 const ShoppingList = (props) => {
   const currentDate = new Date();
+  const calender = currentDate.toDateString();
   const currentYear = currentDate.getFullYear();
   const currentDay = currentDate.getDay();
   const currentMonth = currentDate.getMonth();
@@ -54,16 +55,26 @@ const ShoppingList = (props) => {
           <h1>Shopping History</h1>
         </header>
         <aside>
-          <div className="date-container">
-            <span>{monthToString}</span>,<span>{currentDay}</span>,
-            <span>{currentYear}</span>
-          </div>
-          {ctx.allItemsInHistoryArray?.map((item) => {
-            console.log(item);
+          {ctx.allItemsInHistoryArray.map((item) => {
             return (
-              <div key={item.id}>
-                <h1>{item.historyTitle}</h1>
-              </div>
+              <section>
+                <div className="date-container">
+                  <span>{monthToString}</span>,<span>{currentDay}</span>,
+                  <span>{currentYear}</span>
+                </div>
+                <aside>
+                  <div key={item.id}>
+                    <h1>{item.historyTitle}</h1>
+                  </div>
+                  <div className="calender-container">
+                    <p>{calender}</p>
+                    <section className="statusDiv">
+                      <button>Pending</button>
+                      <p>{">"}</p>
+                    </section>
+                  </div>
+                </aside>
+              </section>
             );
           })}
         </aside>
