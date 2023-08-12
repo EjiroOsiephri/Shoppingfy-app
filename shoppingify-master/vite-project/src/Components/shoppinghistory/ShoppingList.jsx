@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+import AppWideContext from "../../Context/AppContext";
 
-const ShoppingList = () => {
+const ShoppingList = (props) => {
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
   const currentDay = currentDate.getDay();
@@ -43,7 +44,9 @@ const ShoppingList = () => {
   if (currentMonth === 12) {
     monthToString = "December";
   }
-  console.log(currentMonth);
+
+  const ctx = useContext(AppWideContext);
+
   return (
     <>
       <section>
@@ -55,6 +58,14 @@ const ShoppingList = () => {
             <span>{monthToString}</span>,<span>{currentDay}</span>,
             <span>{currentYear}</span>
           </div>
+          {ctx.allItemsInHistoryArray?.map((item) => {
+            console.log(item);
+            return (
+              <div key={item.id}>
+                <h1>{item.historyTitle}</h1>
+              </div>
+            );
+          })}
         </aside>
       </section>
     </>
