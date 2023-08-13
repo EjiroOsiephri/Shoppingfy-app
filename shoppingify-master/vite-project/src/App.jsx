@@ -5,7 +5,7 @@ import ItemsContainer from "./Components/ItemsContainer";
 import { useEffect, useState } from "react";
 import AppWideContext from "./Context/AppContext";
 import { Routes, Route } from "react-router-dom";
-import ShoppingMain from "./Components/shoppinghistory/ShoppingMain";
+import ShoppingList from "./Components/shoppinghistory/ShoppingList";
 
 function App() {
   const [searchInputItem, setSearchItem] = useState("");
@@ -23,6 +23,7 @@ function App() {
   const [categoryError, setCategoryError] = useState(true);
   const [isChecked, setIsChecked] = useState(false);
   const [historyTitle, setHistoryTitle] = useState("");
+  const [showShoppingList, setShowShoppingList] = useState(true);
 
   const [allItemsInHistoryArray, setAllItemsInHistoryArray] = useState([]);
 
@@ -81,6 +82,8 @@ function App() {
     allItemsInHistoryArray,
     setAllItemsInHistoryArray,
     history,
+    showShoppingList,
+    setShowShoppingList,
   };
 
   return (
@@ -92,11 +95,15 @@ function App() {
             element={
               <main className="main">
                 <SideBar setShowCart={setShowCart} />
-                <MainHeader
-                  showCart={showCart}
-                  searchInput={searchInput}
-                  searchInputItem={searchInputItem}
-                />
+                {showShoppingList ? (
+                  <MainHeader
+                    showCart={showCart}
+                    searchInput={searchInput}
+                    searchInputItem={searchInputItem}
+                  />
+                ) : (
+                  <ShoppingList />
+                )}
 
                 <div className="cart-categories">
                   <ItemsContainer
@@ -108,7 +115,6 @@ function App() {
               </main>
             }
           />
-          <Route element={<ShoppingMain />} path="/shopping-history" />
         </Routes>
       </AppWideContext.Provider>
     </>

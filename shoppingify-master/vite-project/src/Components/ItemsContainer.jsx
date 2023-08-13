@@ -59,7 +59,7 @@ const ItemsContainer = (props) => {
 
   const showHistory = () => {
     ctx.setHistoryTitle(historyNameHandler?.current?.value);
-    navigate("/shopping-history");
+    ctx.setShowShoppingList(false);
   };
 
   return (

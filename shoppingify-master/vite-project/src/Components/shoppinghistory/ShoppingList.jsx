@@ -47,11 +47,9 @@ const ShoppingList = (props) => {
 
   const ctx = useContext(AppWideContext);
 
-  console.log(ctx.history);
-
   return (
     <>
-      <section>
+      <section className={Classes["shoppingHistory"]}>
         <header>
           <h1>Shopping History</h1>
         </header>

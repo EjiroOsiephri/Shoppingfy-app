@@ -1,13 +1,51 @@
+.shoppingHistory {
+  margin-left: 2em;
+  margin-right: 2em;
+}
 .Shoppinglist-component {
   display: flex;
-  width: 90%;
   background-color: white;
   height: 63.45px;
+  align-items: center;
   justify-content: space-between;
   border-radius: 10px;
+}
+.Shoppinglist-component > div > h1 {
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 1.2px;
+  margin-left: 0.8em;
 }
 .date-container p {
   color: black;
   font-weight: 700;
-  margin: 1em 0 1em 0;
+  margin: 1em 1em 1em 0;
+}
+.calender-container {
+  display: flex;
+}
+.calender-container p {
+  margin-right: 0.8em;
+  color: rgba(193, 193, 196, 1);
+  font-weight: 600;
+}
+.statusDiv {
+  display: flex;
+}
+.statusDiv > button {
+  width: 75.99198913574219px;
+  height: 24px;
+  background: none;
+  border-radius: 8px;
+  border: 2px solid rgba(86, 204, 242, 1);
+  color: rgba(86, 204, 242, 1);
+  letter-spacing: 1.2px;
+  margin-right: 0.8em;
+}
+.statusDiv p {
+  font-size: 1.7em;
+  color: rgba(249, 161, 9, 1);
+  margin-top: -0.3em;
 }
