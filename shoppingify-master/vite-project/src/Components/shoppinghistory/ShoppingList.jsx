@@ -48,6 +48,13 @@ const ShoppingList = (props) => {
 
   const ctx = useContext(AppWideContext);
 
+  const history =
+    localStorage.getItem("history") !== null
+      ? JSON.parse(localStorage.getItem("history"))
+      : ctx.allItemsInHistoryArray;
+
+  console.log(history.historyTitle);
+
   return (
     <>
       <section>
@@ -56,15 +63,15 @@ const ShoppingList = (props) => {
         </header>
         <aside>
           {ctx.allItemsInHistoryArray.map((item) => {
+            localStorage.setItem("history", JSON.stringify(item));
             return (
               <section>
                 <div className="date-container">
-                  <span>{monthToString}</span>,<span>{currentDay}</span>,
-                  <span>{currentYear}</span>
+                  <p>{calender}</p>
                 </div>
                 <aside>
-                  <div key={item.id}>
-                    <h1>{item.historyTitle}</h1>
+                  <div key={history.currentDate}>
+                    <h1>{history.historyTitle}</h1>
                   </div>
                   <div className="calender-container">
                     <p>{calender}</p>

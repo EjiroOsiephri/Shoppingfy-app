@@ -24,18 +24,7 @@ function App() {
   const [isChecked, setIsChecked] = useState(false);
   const [historyTitle, setHistoryTitle] = useState("");
 
-  const [allItemsInHistoryArray, setAllItemsInHistoryArray] = useState(
-    localStorage.getItem("allItemsHistory")
-      ? JSON.parse(localStorage.getItem("allItemsHistory"))
-      : []
-  );
-
-  useEffect(() => {
-    localStorage.setItem(
-      "allItemsHistory",
-      JSON.stringify(allItemsInHistoryArray)
-    );
-  }, [allItemsInHistoryArray]);
+  const [allItemsInHistoryArray, setAllItemsInHistoryArray] = useState([]);
 
   const date = new Date();
 
