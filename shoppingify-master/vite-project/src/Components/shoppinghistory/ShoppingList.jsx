@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Classes from "../../Sass/ShoppingList.module.scss";
 import AppWideContext from "../../Context/AppContext";
+import { BsFillCalendar2CheckFill } from "react-icons/bs";
 
 const ShoppingList = (props) => {
   const currentDate = new Date();
@@ -65,6 +66,9 @@ const ShoppingList = (props) => {
                     <h1>{item.historyTitle}</h1>
                   </div>
                   <div className={Classes["calender-container"]}>
+                    <span>
+                      <BsFillCalendar2CheckFill />
+                    </span>
                     <p>{calender}</p>
                     <section className={Classes["statusDiv"]}>
                       <button>Pending</button>

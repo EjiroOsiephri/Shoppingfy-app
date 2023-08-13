@@ -11,6 +11,11 @@
   justify-content: space-between;
   border-radius: 10px;
 }
+.calender-container span {
+  margin-right: 0.6em;
+  margin-top: 0.2em;
+  color: rgba(193, 193, 196, 1);
+}
 .Shoppinglist-component > div > h1 {
   text-transform: capitalize;
   font-size: 16px;
@@ -63,7 +68,7 @@
     flex-direction: column;
   }
   .statusDiv {
-    flex-direction: column;
+    margin-top: 1em;
   }
   .Shoppinglist-component {
     flex-direction: column;
