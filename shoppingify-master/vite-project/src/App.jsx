@@ -5,7 +5,7 @@ import ItemsContainer from "./Components/ItemsContainer";
 import { useEffect, useState } from "react";
 import AppWideContext from "./Context/AppContext";
 import { Routes, Route } from "react-router-dom";
-import ShoppingList from "./Components/shoppinghistory/ShoppingList";
+import ShoppingMain from "./Components/shoppinghistory/ShoppingMain";
 
 function App() {
   const [searchInputItem, setSearchItem] = useState("");
@@ -23,7 +23,7 @@ function App() {
   const [categoryError, setCategoryError] = useState(true);
   const [isChecked, setIsChecked] = useState(false);
   const [historyTitle, setHistoryTitle] = useState("");
-  const [showShoppingList, setShowShoppingList] = useState(true);
+  const [showShoppingList, setShowShoppingList] = useState(false);
 
   const [allItemsInHistoryArray, setAllItemsInHistoryArray] = useState([]);
 
@@ -82,8 +82,6 @@ function App() {
     allItemsInHistoryArray,
     setAllItemsInHistoryArray,
     history,
-    showShoppingList,
-    setShowShoppingList,
   };
 
   return (
@@ -95,16 +93,11 @@ function App() {
             element={
               <main className="main">
                 <SideBar setShowCart={setShowCart} />
-                {showShoppingList ? (
-                  <MainHeader
-                    showCart={showCart}
-                    searchInput={searchInput}
-                    searchInputItem={searchInputItem}
-                  />
-                ) : (
-                  <ShoppingList />
-                )}
-
+                <MainHeader
+                  showCart={showCart}
+                  searchInput={searchInput}
+                  searchInputItem={searchInputItem}
+                />
                 <div className="cart-categories">
                   <ItemsContainer
                     showCart={showCart}
@@ -115,6 +108,7 @@ function App() {
               </main>
             }
           />
+          <Route element={<ShoppingMain />} path="/shopping-history" />
         </Routes>
       </AppWideContext.Provider>
     </>

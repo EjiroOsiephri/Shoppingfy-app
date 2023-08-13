@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Classes from "../Sass/SideBar.module.scss";
 import appLogo from "../assets/logo.svg";
 import poll from "../assets/poll.svg";
@@ -7,22 +7,18 @@ import lists from "../assets/list.svg";
 import Cart from "../assets/cart.svg";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import AppWideContext from "../Context/AppContext";
 
 const SideBar = (props) => {
   const state = useSelector((state) => state.cart.totalCartQuantity);
   const navigate = useNavigate();
 
-  const ctx = useContext(AppWideContext);
-
   const cartRenderHandler = () => {
     navigate("/");
-    ctx.setShowShoppingList(true);
     props.setShowCart((prevCart) => !prevCart);
   };
 
   const navigateToShoppingHistory = () => {
-    ctx.setShowShoppingList(false);
+    navigate("/shopping-history");
   };
 
   return (

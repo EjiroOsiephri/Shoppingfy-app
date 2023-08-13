@@ -18,7 +18,7 @@ const ItemsContainer = (props) => {
 
   const dispatch = useDispatch();
 
-  const navigate = useNavigate("/");
+  const navigate = useNavigate();
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -59,7 +59,7 @@ const ItemsContainer = (props) => {
 
   const showHistory = () => {
     ctx.setHistoryTitle(historyNameHandler?.current?.value);
-    ctx.setShowShoppingList(false);
+    navigate("/shopping-history");
   };
 
   return (

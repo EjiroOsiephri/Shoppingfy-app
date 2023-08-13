@@ -1,15 +1,12 @@
 .main {
-  display: grid;
-  grid-template: 1fr/77px 1fr auto;
-  align-items: start;
-  max-width: 1500px;
-  min-height: 100vh;
-  margin-inline: auto;
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  overflow: hidden;
+  scroll-behavior: smooth;
 }
+
 .cart-categories {
-  position: relative;
-  right: 0;
   display: grid;
 }
 button:disabled {
