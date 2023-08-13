@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
+import Classes from "../../Sass/ShoppingList.module.scss";
 import AppWideContext from "../../Context/AppContext";
 
 const ShoppingList = (props) => {
   const currentDate = new Date();
   const calender = currentDate.toDateString();
-  const currentYear = currentDate.getFullYear();
-  const currentDay = currentDate.getDay();
   const currentMonth = currentDate.getMonth();
 
   let monthToString;
@@ -48,12 +47,7 @@ const ShoppingList = (props) => {
 
   const ctx = useContext(AppWideContext);
 
-  const history =
-    localStorage.getItem("history") !== null
-      ? JSON.parse(localStorage.getItem("history"))
-      : ctx.allItemsInHistoryArray;
-
-  console.log(history.historyTitle);
+  console.log(ctx.history);
 
   return (
     <>
@@ -62,20 +56,19 @@ const ShoppingList = (props) => {
           <h1>Shopping History</h1>
         </header>
         <aside>
-          {ctx.allItemsInHistoryArray.map((item) => {
-            localStorage.setItem("history", JSON.stringify(item));
+          {ctx.allItemsInHistoryArray?.map((item, index) => {
             return (
-              <section>
-                <div className="date-container">
+              <section key={item.currentDate}>
+                <div className={Classes["date-container"]}>
                   <p>{calender}</p>
                 </div>
-                <aside>
-                  <div key={history.currentDate}>
-                    <h1>{history.historyTitle}</h1>
+                <aside className={Classes["Shoppinglist-component"]}>
+                  <div>
+                    <h1>{item.historyTitle}</h1>
                   </div>
-                  <div className="calender-container">
+                  <div className={Classes["calender-container"]}>
                     <p>{calender}</p>
-                    <section className="statusDiv">
+                    <section className={Classes["statusDiv"]}>
                       <button>Pending</button>
                       <p>{">"}</p>
                     </section>

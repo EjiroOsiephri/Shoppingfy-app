@@ -26,6 +26,11 @@ function App() {
 
   const [allItemsInHistoryArray, setAllItemsInHistoryArray] = useState([]);
 
+  const history =
+    localStorage.getItem("history") !== null
+      ? JSON.parse(localStorage.getItem("history"))
+      : [];
+
   const date = new Date();
 
   const currentDate = date.toISOString();
@@ -39,13 +44,14 @@ function App() {
           currentDate,
         },
       ]);
-      setHistoryTitle("");
+      localStorage.setItem("history", JSON.stringify(allItemsInHistoryArray));
     }
   }, [historyTitle]);
 
   function searchInput(item) {
     setSearchItem(item);
   }
+  console.log(history);
 
   const AddNewItemObj = {
     showNewItem: showNewItem,
@@ -73,6 +79,8 @@ function App() {
     historyTitle,
     setHistoryTitle,
     allItemsInHistoryArray,
+    setAllItemsInHistoryArray,
+    history,
   };
 
   return (

@@ -1,9 +1,12 @@
 .main-shopping {
   display: flex;
-  justify-content: space-between;
+  justify-content: initial;
   height: 100vh;
   gap: 30px;
   scroll-behavior: smooth;
+}
+.date-container p {
+  font-weight: 500;
 }
 @media screen and (max-width: 678px) {
   .main-shopping {

@@ -9,6 +9,7 @@ import { useContext } from "react";
 import AppWideContext from "../Context/AppContext";
 import AddNewItem from "./AddNewItem";
 import { useNavigate } from "react-router-dom";
+import { historyActions } from "../Store/HistorySlice";
 
 const ItemsContainer = (props) => {
   const state = useSelector((state) => state.cart.items);
