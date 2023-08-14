@@ -57,6 +57,10 @@ const ItemsContainer = (props) => {
 
   const historyNameHandler = useRef();
 
+  const currentDate = new Date();
+
+  const calender = currentDate.toDateString();
+
   const showHistory = () => {
     const newHistoryTitle = historyNameHandler?.current?.value;
 
@@ -67,6 +71,7 @@ const ItemsContainer = (props) => {
     dispatch(
       historyActions.allItemsArray({
         historyTitle: newHistoryTitle,
+        calender: calender,
       })
     );
   };

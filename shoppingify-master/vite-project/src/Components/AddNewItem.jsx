@@ -46,7 +46,7 @@ const AddNewItem = () => {
 
   const nameIsInvalid = name.trim() === "";
 
-  if (nameIsInvalid && ctx.categoryError) {
+  if (nameIsInvalid || ctx.categoryError) {
     formIsValid = false;
   } else {
     formIsValid = true;

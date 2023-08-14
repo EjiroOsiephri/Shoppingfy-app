@@ -6,7 +6,7 @@ const ShoppingDetails = (props) => {
       <section>
         <button>back</button>
         <main>
-          <h1>{props.historyTitle}</h1>
+          <h1>{props.historyTitle.historyTitle}</h1>
         </main>
       </section>
     </>
