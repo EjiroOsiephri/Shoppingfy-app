@@ -58,9 +58,9 @@
   font-size: 1.7em;
   color: rgba(249, 161, 9, 1);
 }
-@media screen and (max-width: 678px) {
+@media screen and (max-width: 778px) {
   .Shoppinglist-component > div > h1 {
-    margin-left: 0;
+    margin-left: -2em;
     text-align: left;
     margin-bottom: 20px;
   }

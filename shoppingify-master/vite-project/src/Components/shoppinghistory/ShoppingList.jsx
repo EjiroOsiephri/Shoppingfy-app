@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Classes from "../../Sass/ShoppingList.module.scss";
 import AppWideContext from "../../Context/AppContext";
 import { BsFillCalendar2CheckFill } from "react-icons/bs";
+import { useSelector } from "react-redux";
 
 const ShoppingList = (props) => {
   const currentDate = new Date();
@@ -48,6 +49,10 @@ const ShoppingList = (props) => {
 
   const ctx = useContext(AppWideContext);
 
+  const historyState = useSelector(
+    (state) => state.history.allItemsInHistoryArray
+  );
+
   return (
     <>
       <section className={Classes["shoppingHistory"]}>
@@ -55,7 +60,7 @@ const ShoppingList = (props) => {
           <h1>Shopping History</h1>
         </header>
         <aside>
-          {ctx.allItemsInHistoryArray?.map((item, index) => {
+          {historyState?.map((item, index) => {
             return (
               <section key={item.currentDate}>
                 <div className={Classes["date-container"]}>

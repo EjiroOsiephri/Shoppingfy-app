@@ -58,8 +58,12 @@ const ItemsContainer = (props) => {
   const historyNameHandler = useRef();
 
   const showHistory = () => {
-    ctx.setHistoryTitle(historyNameHandler?.current?.value);
+    const newHistoryTitle = historyNameHandler?.current?.value;
+
+    ctx.setHistoryTitle(newHistoryTitle);
+
     navigate("/shopping-history");
+    dispatch(historyActions.allItemsArray(ctx.allItemsInHistoryArray));
   };
 
   return (

@@ -23,14 +23,11 @@ function App() {
   const [categoryError, setCategoryError] = useState(true);
   const [isChecked, setIsChecked] = useState(false);
   const [historyTitle, setHistoryTitle] = useState("");
-  const [showShoppingList, setShowShoppingList] = useState(false);
-
   const [allItemsInHistoryArray, setAllItemsInHistoryArray] = useState([]);
 
-  const history =
-    localStorage.getItem("history") !== null
-      ? JSON.parse(localStorage.getItem("history"))
-      : [];
+  function searchInput(item) {
+    setSearchItem(item);
+  }
 
   const date = new Date();
 
@@ -38,21 +35,13 @@ function App() {
 
   useEffect(() => {
     if (historyTitle !== "") {
-      setAllItemsInHistoryArray((prevArray) => [
-        ...prevArray,
-        {
-          historyTitle,
-          currentDate,
-        },
-      ]);
-      localStorage.setItem("history", JSON.stringify(allItemsInHistoryArray));
+      const newItem = {
+        historyTitle,
+        currentDate,
+      };
+      setAllItemsInHistoryArray((prevArray) => [...prevArray, newItem]);
     }
   }, [historyTitle]);
-
-  function searchInput(item) {
-    setSearchItem(item);
-  }
-  console.log(history);
 
   const AddNewItemObj = {
     showNewItem: showNewItem,
@@ -80,8 +69,6 @@ function App() {
     historyTitle,
     setHistoryTitle,
     allItemsInHistoryArray,
-    setAllItemsInHistoryArray,
-    history,
   };
 
   return (
