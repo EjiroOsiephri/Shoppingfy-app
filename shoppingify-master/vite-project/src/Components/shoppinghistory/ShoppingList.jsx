@@ -3,13 +3,18 @@ import Classes from "../../Sass/ShoppingList.module.scss";
 import AppWideContext from "../../Context/AppContext";
 import { BsFillCalendar2CheckFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
+import ShoppingDetails from "./ShoppingDetails";
+import { useState } from "react";
 
 const ShoppingList = (props) => {
   const currentDate = new Date();
   const calender = currentDate.toDateString();
   const currentMonth = currentDate.getMonth();
+  const [showHistoryDetails, setShowHistoryDetails] = useState(false);
+  const [historyTitle, setHistoryTitle] = useState("");
 
   let monthToString;
+
   if (currentMonth === 1) {
     monthToString = "January";
   }
@@ -51,41 +56,51 @@ const ShoppingList = (props) => {
     (state) => state.history.allItemsInHistoryArray
   );
 
-  console.log(historyState);
+  const statusDiv = (item) => {
+    setHistoryTitle(item.historyTitle);
+    setShowHistoryDetails(true);
+  };
 
   return (
     <>
-      <section className={Classes["shoppingHistory"]}>
-        <header>
-          <h1>Shopping History</h1>
-        </header>
-        <aside>
-          {historyState?.map((item, index) => {
-            return (
-              <section key={index}>
-                <div className={Classes["date-container"]}>
-                  <p>{calender}</p>
-                </div>
-                <aside className={Classes["Shoppinglist-component"]}>
-                  <div>
-                    <h1>{item.historyTitle}</h1>
-                  </div>
-                  <div className={Classes["calender-container"]}>
-                    <span>
-                      <BsFillCalendar2CheckFill />
-                    </span>
+      {!showHistoryDetails ? (
+        <section className={Classes["shoppingHistory"]}>
+          <header>
+            <h1>Shopping History</h1>
+          </header>
+          <aside>
+            {historyState?.map((item, index) => {
+              return (
+                <section key={index}>
+                  <div className={Classes["date-container"]}>
                     <p>{calender}</p>
-                    <section className={Classes["statusDiv"]}>
-                      <button>Pending</button>
-                      <p>{">"}</p>
-                    </section>
                   </div>
-                </aside>
-              </section>
-            );
-          })}
-        </aside>
-      </section>
+                  <aside className={Classes["Shoppinglist-component"]}>
+                    <div>
+                      <h1>{item.historyTitle}</h1>
+                    </div>
+                    <div className={Classes["calender-container"]}>
+                      <span>
+                        <BsFillCalendar2CheckFill />
+                      </span>
+                      <p>{calender}</p>
+                      <section
+                        onClick={() => statusDiv(item)}
+                        className={Classes["statusDiv"]}
+                      >
+                        <button>Pending</button>
+                        <p>{">"}</p>
+                      </section>
+                    </div>
+                  </aside>
+                </section>
+              );
+            })}
+          </aside>
+        </section>
+      ) : (
+        <ShoppingDetails historyTitle={historyTitle} />
+      )}
     </>
   );
 };

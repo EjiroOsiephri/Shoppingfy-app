@@ -13,7 +13,7 @@
 }
 .calender-container span {
   margin-right: 0.6em;
-  margin-top: 0.2em;
+  margin-top: 0.9em;
   color: rgba(193, 193, 196, 1);
 }
 .Shoppinglist-component > div > h1 {
@@ -32,7 +32,8 @@
 .calender-container {
   display: flex;
 }
-.calender-container p {
+.calender-container > p {
+  margin-top: 0.8em;
   margin-right: 0.8em;
   color: rgba(193, 193, 196, 1);
   font-weight: 600;
@@ -54,7 +55,8 @@
   letter-spacing: 1.2px;
   margin-right: 0.8em;
 }
-.statusDiv p {
+.statusDiv > p {
+  margin-right: 0.2em;
   font-size: 1.7em;
   color: rgba(249, 161, 9, 1);
 }
