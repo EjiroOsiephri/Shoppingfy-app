@@ -63,7 +63,12 @@ const ItemsContainer = (props) => {
     ctx.setHistoryTitle(newHistoryTitle);
 
     navigate("/shopping-history");
-    dispatch(historyActions.allItemsArray(ctx.allItemsInHistoryArray));
+
+    dispatch(
+      historyActions.allItemsArray({
+        historyTitle: newHistoryTitle,
+      })
+    );
   };
 
   return (

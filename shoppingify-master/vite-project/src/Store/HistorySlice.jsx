@@ -1,9 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-let history =
-  localStorage.getItem("history") !== null
-    ? JSON.parse(localStorage.getItem("history"))
-    : [];
+let history = localStorage.getItem("history");
+
+// If history is null or not present in local storage, initialize it as an empty array
+if (history === null) {
+  history = [];
+} else {
+  history = JSON.parse(history);
+}
 
 const historySlice = createSlice({
   name: "History",
@@ -12,10 +16,13 @@ const historySlice = createSlice({
   },
   reducers: {
     allItemsArray(state, action) {
-      state.allItemsInHistoryArray.push(action.payload);
+      state.allItemsInHistoryArray = [
+        ...state.allItemsInHistoryArray,
+        action.payload,
+      ];
       localStorage.setItem(
         "history",
-        JSON.stringify(state.allItemsInHistoryArray.map((item) => item))
+        JSON.stringify(state.allItemsInHistoryArray)
       );
     },
   },

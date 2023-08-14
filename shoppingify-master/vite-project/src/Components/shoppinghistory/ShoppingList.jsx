@@ -47,11 +47,11 @@ const ShoppingList = (props) => {
     monthToString = "December";
   }
 
-  const ctx = useContext(AppWideContext);
-
   const historyState = useSelector(
     (state) => state.history.allItemsInHistoryArray
   );
+
+  console.log(historyState);
 
   return (
     <>
@@ -62,7 +62,7 @@ const ShoppingList = (props) => {
         <aside>
           {historyState?.map((item, index) => {
             return (
-              <section key={item.currentDate}>
+              <section key={index}>
                 <div className={Classes["date-container"]}>
                   <p>{calender}</p>
                 </div>

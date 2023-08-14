@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import AppWideContext from "./Context/AppContext";
 import { Routes, Route } from "react-router-dom";
 import ShoppingMain from "./Components/shoppinghistory/ShoppingMain";
+import { useDispatch, useSelector } from "react-redux";
+import { historyActions } from "./Store/HistorySlice";
 
 function App() {
   const [searchInputItem, setSearchItem] = useState("");
@@ -22,12 +24,8 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [categoryError, setCategoryError] = useState(true);
   const [isChecked, setIsChecked] = useState(false);
-  const [historyTitle, setHistoryTitle] = useState("");
   const [allItemsInHistoryArray, setAllItemsInHistoryArray] = useState([]);
-
-  function searchInput(item) {
-    setSearchItem(item);
-  }
+  const [historyTitle, setHistoryTitle] = useState("");
 
   const date = new Date();
 
@@ -42,6 +40,10 @@ function App() {
       setAllItemsInHistoryArray((prevArray) => [...prevArray, newItem]);
     }
   }, [historyTitle]);
+
+  function searchInput(item) {
+    setSearchItem(item);
+  }
 
   const AddNewItemObj = {
     showNewItem: showNewItem,
@@ -67,8 +69,8 @@ function App() {
     isChecked,
     setIsChecked,
     historyTitle,
-    setHistoryTitle,
     allItemsInHistoryArray,
+    setHistoryTitle,
   };
 
   return (
