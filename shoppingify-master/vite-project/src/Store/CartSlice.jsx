@@ -166,6 +166,7 @@ const cartSlice = createSlice({
   name: "Cart",
   initialState: {
     items: cartItems,
+    itemName: [],
     totalCartQuantity: totalQuantity,
     foodAndVegetables: foodAndVeggies,
     meatAndFish: chickenAndFish,
@@ -184,6 +185,7 @@ const cartSlice = createSlice({
       const newItem = action.payload;
       const existingItem = state.items.find((item) => item.id === newItem.id);
       state.totalCartQuantity++;
+
       if (!existingItem) {
         state.items.push({
           id: newItem.id,

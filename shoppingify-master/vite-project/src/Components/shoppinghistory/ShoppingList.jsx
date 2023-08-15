@@ -7,8 +7,10 @@ import ShoppingDetails from "./ShoppingDetails";
 import { useState } from "react";
 
 const ShoppingList = () => {
-  const [showHistoryDetails, setShowHistoryDetails] = useState(false);
   const [historyTitle, setHistoryTitle] = useState("");
+  const [calender, setCalender] = useState("");
+
+  const ctx = useContext(AppWideContext);
 
   const historyState = useSelector(
     (state) => state.history.allItemsInHistoryArray
@@ -16,12 +18,13 @@ const ShoppingList = () => {
 
   const statusDiv = (item) => {
     setHistoryTitle(item);
-    setShowHistoryDetails(true);
+    setCalender(item);
+    ctx.setShowHistoryDetails(true);
   };
 
   return (
     <>
-      {!showHistoryDetails ? (
+      {!ctx.showHistoryDetails ? (
         <section className={Classes["shoppingHistory"]}>
           <header>
             <h1>Shopping History</h1>
@@ -42,12 +45,9 @@ const ShoppingList = () => {
                         <BsFillCalendar2CheckFill />
                       </span>
                       <p>{item.calender}</p>
-                      <section
-                        onClick={() => statusDiv(item)}
-                        className={Classes["statusDiv"]}
-                      >
+                      <section className={Classes["statusDiv"]}>
                         <button>Pending</button>
-                        <p>{">"}</p>
+                        <p onClick={() => statusDiv(item)}>{">"}</p>
                       </section>
                     </div>
                   </aside>
@@ -57,7 +57,7 @@ const ShoppingList = () => {
           </aside>
         </section>
       ) : (
-        <ShoppingDetails historyTitle={historyTitle} />
+        <ShoppingDetails calender={calender} historyTitle={historyTitle} />
       )}
     </>
   );

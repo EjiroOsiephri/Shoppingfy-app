@@ -6,8 +6,6 @@ import { useEffect, useState } from "react";
 import AppWideContext from "./Context/AppContext";
 import { Routes, Route } from "react-router-dom";
 import ShoppingMain from "./Components/shoppinghistory/ShoppingMain";
-import { useDispatch, useSelector } from "react-redux";
-import { historyActions } from "./Store/HistorySlice";
 
 function App() {
   const [searchInputItem, setSearchItem] = useState("");
@@ -26,6 +24,8 @@ function App() {
   const [isChecked, setIsChecked] = useState(false);
   const [allItemsInHistoryArray, setAllItemsInHistoryArray] = useState([]);
   const [historyTitle, setHistoryTitle] = useState("");
+  const [showHistoryDetails, setShowHistoryDetails] = useState(false);
+  const [itemName, setItemName] = useState([]);
 
   const date = new Date();
 
@@ -71,6 +71,10 @@ function App() {
     historyTitle,
     allItemsInHistoryArray,
     setHistoryTitle,
+    setShowHistoryDetails,
+    showHistoryDetails,
+    itemName,
+    setItemName,
   };
 
   return (

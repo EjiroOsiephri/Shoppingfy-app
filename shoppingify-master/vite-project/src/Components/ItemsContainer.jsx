@@ -50,9 +50,10 @@ const ItemsContainer = (props) => {
     ctx.setShowNewItem(true);
   };
 
-  const handleCheckboxChange = (itemId, isChecked) => {
+  const handleCheckboxChange = (itemId, isChecked, itemName) => {
     console.log(!isChecked);
     dispatch(cartActions.toggleItemCheckbox(itemId));
+    ctx.setItemName((prevArray) => [...prevArray, { itemName }]);
   };
 
   const historyNameHandler = useRef();
@@ -122,7 +123,11 @@ const ItemsContainer = (props) => {
                           <input
                             checked={item.isChecked}
                             onChange={() =>
-                              handleCheckboxChange(item.id, item.isChecked)
+                              handleCheckboxChange(
+                                item.id,
+                                item.isChecked,
+                                item.name
+                              )
                             }
                             type="checkbox"
                           />

@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import Classes from "../../Sass/FoodArray.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../Store/CartSlice";
 
 const FoodArray = (props) => {
-  let emptyFilterState = false;
-
   const foodAndVegetables = useSelector(
     (state) => state.cart.foodAndVegetables || []
   );
