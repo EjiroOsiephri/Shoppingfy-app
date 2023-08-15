@@ -155,7 +155,32 @@ aside > h1 {
 .item-container-name:last-child {
   margin-bottom: 4em;
 }
-
+.Completion-btn {
+  display: flex;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10px;
+}
+.Completion-btn > button:first-child {
+  font-family: Quicksand;
+  color: rgba(52, 51, 58, 1);
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 1.2px;
+  margin: 0 4em 0 4em;
+}
+.Completion-btn > button:last-child {
+  background-color: rgba(86, 204, 242, 1);
+  color: white;
+  border-radius: 12px;
+  padding: 1em;
+  border: none;
+  letter-spacing: 1.2px;
+}
 input {
   border: 2px solid rgba(249, 161, 9, 1);
 }

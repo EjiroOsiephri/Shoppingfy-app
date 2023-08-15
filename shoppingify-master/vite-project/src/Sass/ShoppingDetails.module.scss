@@ -1,5 +1,7 @@
 .shopping-details-section {
   margin-left: 4rem;
+  flex: 1;
+  overflow-y: auto;
 }
 .shopping-details-section > button {
   margin-top: 0.7em;

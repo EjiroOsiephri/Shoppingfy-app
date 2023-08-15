@@ -77,6 +77,14 @@ const ItemsContainer = (props) => {
     );
   };
 
+  const cancelCompletedState = () => {
+    ctx.setCompletionState(false);
+  };
+
+  const showCompletion = () => {
+    ctx.setShowCompletion(true);
+  };
+
   return (
     <>
       {ctx.showNewItem ? (
@@ -160,47 +168,54 @@ const ItemsContainer = (props) => {
               </aside>
             </section>
           )}
-          <div
-            style={
-              windowWidth <= 678 && props.showCart === true
-                ? {
-                    display: "block",
-                    maxWidth: "100%",
-                    marginInline: "auto",
-                    marginLeft: "50px",
-                  }
-                : {}
-            }
-            className={Classes["enterFoodItem"]}
-          >
-            <input
-              ref={historyNameHandler}
+          {ctx.completionState ? (
+            <div className={Classes["Completion-btn"]}>
+              <button onClick={cancelCompletedState}>cancel</button>
+              <button onClick={showCompletion}>Complete</button>
+            </div>
+          ) : (
+            <div
               style={
-                props.cartItems
+                windowWidth <= 678 && props.showCart === true
                   ? {
-                      borderColor: "rgba(249, 161, 9, 1)",
+                      display: "block",
+                      maxWidth: "100%",
+                      marginInline: "auto",
+                      marginLeft: "50px",
                     }
                   : {}
               }
-              disabled={!props.cartItems}
-              type="text"
-              placeholder="Enter a name"
-            />
-            <button
-              onClick={showHistory}
-              style={
-                props.cartItems
-                  ? {
-                      background: "rgba(249, 161, 9, 1)",
-                      color: "white",
-                    }
-                  : {}
-              }
-              disabled={!props.cartItems}
+              className={Classes["enterFoodItem"]}
             >
-              Save
-            </button>
-          </div>
+              <input
+                ref={historyNameHandler}
+                style={
+                  props.cartItems
+                    ? {
+                        borderColor: "rgba(249, 161, 9, 1)",
+                      }
+                    : {}
+                }
+                disabled={!props.cartItems}
+                type="text"
+                placeholder="Enter a name"
+              />
+              <button
+                onClick={showHistory}
+                style={
+                  props.cartItems
+                    ? {
+                        background: "rgba(249, 161, 9, 1)",
+                        color: "white",
+                      }
+                    : {}
+                }
+                disabled={!props.cartItems}
+              >
+                Save
+              </button>
+            </div>
+          )}
         </aside>
       )}
     </>

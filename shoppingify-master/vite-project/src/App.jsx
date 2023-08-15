@@ -26,6 +26,8 @@ function App() {
   const [historyTitle, setHistoryTitle] = useState("");
   const [showHistoryDetails, setShowHistoryDetails] = useState(false);
   const [itemName, setItemName] = useState([]);
+  const [completionState, setCompletionState] = useState(false);
+  const [showCompletion, setShowCompletion] = useState(false);
 
   const date = new Date();
 
@@ -75,6 +77,10 @@ function App() {
     showHistoryDetails,
     itemName,
     setItemName,
+    completionState,
+    setCompletionState,
+    setShowCompletion,
+    showCompletion,
   };
 
   return (

@@ -22,6 +22,10 @@ const ShoppingList = () => {
     ctx.setShowHistoryDetails(true);
   };
 
+  const setCompletionState = () => {
+    ctx.setCompletionState(true);
+  };
+
   return (
     <>
       {!ctx.showHistoryDetails ? (
@@ -46,7 +50,19 @@ const ShoppingList = () => {
                       </span>
                       <p>{item.calender}</p>
                       <section className={Classes["statusDiv"]}>
-                        <button>Pending</button>
+                        <button
+                          style={
+                            ctx.showCompletion
+                              ? {
+                                  borderColor: "rgba(86, 204, 242, 1)",
+                                  color: "rgba(86, 204, 242, 1)",
+                                }
+                              : {}
+                          }
+                          onClick={setCompletionState}
+                        >
+                          {ctx.showCompletion ? "Completed" : "Pending"}
+                        </button>
                         <p onClick={() => statusDiv(item)}>{">"}</p>
                       </section>
                     </div>
