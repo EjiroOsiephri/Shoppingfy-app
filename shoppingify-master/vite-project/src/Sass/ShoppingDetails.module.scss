@@ -1,0 +1,40 @@
+.shopping-details-section {
+  margin-left: 4rem;
+}
+.shopping-details-section > button {
+  margin-top: 0.7em;
+  background: none;
+  color: rgba(249, 161, 10, 1);
+  border: none;
+  letter-spacing: 1.2px;
+}
+.mainheader-div > h1 {
+  margin: 1.2rem 0 0.3rem 0;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 33px;
+  letter-spacing: 1.2px;
+}
+.mainheader-div > p {
+  margin-bottom: 1.2rem;
+  color: rgba(193, 193, 196, 1);
+  font-size: 12px;
+}
+.shoppingDetails-name-div {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  margin-top: 0.8em;
+  width: 182px;
+  background-color: white;
+  padding: 1.2em;
+}
+.shoppingDetails-name-div > p {
+  color: rgba(249, 161, 10, 1);
+  letter-spacing: 1.3px;
+}
+.shoppingDetails-flex-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 4fr));
+  gap: 10px;
+}

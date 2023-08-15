@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import AppWideContext from "../../Context/AppContext";
 import { useSelector } from "react-redux";
+import Classes from "../../Sass/ShoppingDetails.module.scss";
 
 const ShoppingDetails = (props) => {
   const totalState = useSelector((state) => state.cart.items || []);
-
-  console.log(totalState);
 
   const ctx = useContext(AppWideContext);
 
@@ -15,19 +14,22 @@ const ShoppingDetails = (props) => {
 
   return (
     <>
-      <section>
+      <section className={Classes["shopping-details-section"]}>
         <button onClick={goBack}>back</button>
         <main>
-          <div className="mainheader-div">
+          <div className={Classes["mainheader-div"]}>
             <h1>{props.historyTitle.historyTitle}</h1>
             <p>{props.calender.calender}</p>
           </div>
-          <div className="main-items">
+          <div className={Classes["shoppingDetails-flex-container"]}>
             {totalState?.map((item, index) => {
               return (
-                <div key={index}>
-                  <h3>{item.title}</h3>;<h3>{item.name}</h3>
-                </div>
+                <aside key={index}>
+                  <div className={Classes["shoppingDetails-name-div"]}>
+                    <h4>{item.name}</h4>
+                    <p>{item.quantity + "pcs"}</p>
+                  </div>
+                </aside>
               );
             })}
           </div>
