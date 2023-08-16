@@ -11,13 +11,6 @@ const ShoppingList = () => {
   const [calender, setCalender] = useState("");
   const ctx = useContext(AppWideContext);
 
-  let completed =
-    localStorage.getItem("completed") !== null
-      ? JSON.parse(localStorage.getItem("completed"))
-      : false;
-
-  console.log(completed);
-
   const historyState = useSelector(
     (state) => state.history.allItemsInHistoryArray
   );
@@ -30,10 +23,9 @@ const ShoppingList = () => {
 
   const setCompletionState = () => {
     ctx.setCompletionState(true);
-    localStorage.setItem("completed", JSON.stringify(ctx.showCompletion));
   };
 
-  console.log(ctx.showCompletion);
+  const completionState = useSelector((state) => state.history.showCompletion);
 
   return (
     <>
@@ -61,16 +53,19 @@ const ShoppingList = () => {
                       <section className={Classes["statusDiv"]}>
                         <button
                           style={
-                            ctx.showCompletion
+                            completionState
                               ? {
                                   borderColor: "rgba(86, 204, 242, 1)",
                                   color: "rgba(86, 204, 242, 1)",
                                 }
-                              : {}
+                              : {
+                                  borderColor: "rgba(235, 87, 87, 1)",
+                                  color: "rgba(235, 87, 87, 1)",
+                                }
                           }
                           onClick={setCompletionState}
                         >
-                          {ctx.showCompletion ? "Completed" : "Pending"}
+                          {completionState ? "Completed" : "Pending"}
                         </button>
                         <p onClick={() => statusDiv(item)}>{">"}</p>
                       </section>

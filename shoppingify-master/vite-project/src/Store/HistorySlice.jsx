@@ -12,6 +12,7 @@ const historySlice = createSlice({
   name: "History",
   initialState: {
     allItemsInHistoryArray: history,
+    showCompletion: false,
   },
   reducers: {
     allItemsArray(state, action) {
@@ -23,6 +24,12 @@ const historySlice = createSlice({
         "history",
         JSON.stringify(state.allItemsInHistoryArray)
       );
+    },
+    showCompletion(state, action) {
+      state.showCompletion = true;
+    },
+    cancelCompletion(state, action) {
+      state.showCompletion = false;
     },
   },
 });
