@@ -21,6 +21,10 @@ const SideBar = (props) => {
     navigate("/shopping-history");
   };
 
+  const navigateToStatsPage = () => {
+    navigate("/statistics");
+  };
+
   return (
     <>
       <nav className={Classes.navigation}>
@@ -28,7 +32,7 @@ const SideBar = (props) => {
           <img src={appLogo} alt="" />
         </div>
         <div className={Classes.navigatePages}>
-          <img src={poll} alt="" />
+          <img src={poll} onClick={navigateToStatsPage} alt="" />
           <img onClick={navigateToShoppingHistory} src={rotate} alt="" />
           <img onClick={cartRenderHandler} src={lists} alt="" />
         </div>

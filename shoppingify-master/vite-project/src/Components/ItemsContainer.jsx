@@ -79,10 +79,12 @@ const ItemsContainer = (props) => {
 
   const cancelCompletedState = () => {
     dispatch(historyActions.cancelCompletion());
+    ctx.setCompletionState(false);
   };
 
   const showCompletion = () => {
     dispatch(historyActions.showCompletion());
+    ctx.setCompletionState(false);
   };
 
   return (
