@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Classes from "../Sass/progressbar.module.scss";
 import { useSelector } from "react-redux";
+import Chart from "./Chart";
 
 const Progress = () => {
   const statisticsState = useSelector((state) => state.cart.items);
@@ -29,43 +30,47 @@ const Progress = () => {
   return (
     <>
       <main className={Classes["progress-main"]}>
-        <section className={Classes["topItems"]}>
-          <h1>Top Items</h1>
-          {sortedItems.slice(0, 3).map((item, index) => {
-            return (
-              <aside key={index} className={Classes["progress-container"]}>
-                <div className={Classes["progress-label"]}>
-                  <p>{item.name}</p>
-                  <p>100%</p>
-                </div>
-                <section className={Classes["progress-bar"]}>
-                  <div
-                    className={Classes["progress-bar-fill"]}
-                    style={{ width: `${item.quantity}` }}
-                  ></div>
-                </section>
-              </aside>
-            );
-          })}
-        </section>
-        <section className={Classes["topCategories"]}>
-          <h1>Top Categories</h1>
-          {sortedCategories.slice(0, 3).map((item, index) => {
-            return (
-              <aside key={index} className={Classes["progress-container"]}>
-                <div className={Classes["progress-label"]}>
-                  <p>{item.title}</p>
-                  <p>100%</p>
-                </div>
-                <section className={Classes["progress-bar"]}>
-                  <div
-                    className={Classes["progress-bar-fill-categories"]}
-                  ></div>
-                </section>
-              </aside>
-            );
-          })}
-        </section>
+        <div className={Classes["flex-progress-container"]}>
+          <section className={Classes["topItems"]}>
+            <h1>Top Items</h1>
+            {sortedItems.slice(0, 3).map((item, index) => {
+              return (
+                <aside key={index} className={Classes["progress-container"]}>
+                  <div className={Classes["progress-label"]}>
+                    <p>{item.name}</p>
+                    <p>{item.quantity}%</p>
+                  </div>
+                  <section className={Classes["progress-bar"]}>
+                    <div
+                      className={Classes["progress-bar-fill"]}
+                      style={{ width: `${item.quantity * 3}%` }}
+                    ></div>
+                  </section>
+                </aside>
+              );
+            })}
+          </section>
+          <section className={Classes["topCategories"]}>
+            <h1>Top Categories</h1>
+            {sortedCategories.slice(0, 3).map((item, index) => {
+              return (
+                <aside key={index} className={Classes["progress-container"]}>
+                  <div className={Classes["progress-label"]}>
+                    <p>{item.title}</p>
+                    <p>{item.count * 10}%</p>
+                  </div>
+                  <section className={Classes["progress-bar"]}>
+                    <div
+                      style={{ width: `${item.count * 10}%` }}
+                      className={Classes["progress-bar-fill-categories"]}
+                    ></div>
+                  </section>
+                </aside>
+              );
+            })}
+          </section>
+        </div>
+        <Chart />
       </main>
     </>
   );

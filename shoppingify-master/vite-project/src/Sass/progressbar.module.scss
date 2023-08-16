@@ -1,6 +1,6 @@
 .progress-main {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   flex: 1;
   overflow-y: auto;
   padding: 20px;
@@ -41,4 +41,11 @@
   background-color: rgba(86, 204, 242, 1);
   border-radius: 12px;
   transition: width 0.5s ease-out;
+}
+.progress-label > p:last-child {
+  margin-left: 0.7em;
+}
+.flex-progress-container {
+  display: flex;
+  justify-content: space-between;
 }
