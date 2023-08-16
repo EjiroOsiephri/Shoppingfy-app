@@ -9,8 +9,14 @@ import { useState } from "react";
 const ShoppingList = () => {
   const [historyTitle, setHistoryTitle] = useState("");
   const [calender, setCalender] = useState("");
-
   const ctx = useContext(AppWideContext);
+
+  let completed =
+    localStorage.getItem("completed") !== null
+      ? JSON.parse(localStorage.getItem("completed"))
+      : false;
+
+  console.log(completed);
 
   const historyState = useSelector(
     (state) => state.history.allItemsInHistoryArray
@@ -24,7 +30,10 @@ const ShoppingList = () => {
 
   const setCompletionState = () => {
     ctx.setCompletionState(true);
+    localStorage.setItem("completed", JSON.stringify(ctx.showCompletion));
   };
+
+  console.log(ctx.showCompletion);
 
   return (
     <>
