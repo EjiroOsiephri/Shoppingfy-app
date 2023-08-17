@@ -23,12 +23,16 @@
   display: flex;
   justify-content: space-between;
 }
+
 .progress-label > p {
   font-size: 14px;
   font-weight: 700;
   line-height: 18px;
   letter-spacing: 1.1px;
   text-align: left;
+}
+.chart {
+  margin-top: 2em;
 }
 .progress-bar-fill {
   height: 100%;
@@ -48,4 +52,13 @@
 .flex-progress-container {
   display: flex;
   justify-content: space-between;
+}
+@media screen and (max-width: 678px) {
+  .flex-progress-container {
+    flex-direction: column;
+  }
+  .topCategories {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
 }

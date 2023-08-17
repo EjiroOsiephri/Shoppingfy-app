@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Classes from "../Sass/progressbar.module.scss";
 import { useSelector } from "react-redux";
-import Chart from "./Chart";
+import Charts from "./Chart";
 
 const Progress = () => {
   const statisticsState = useSelector((state) => state.cart.items);
@@ -70,7 +70,9 @@ const Progress = () => {
             })}
           </section>
         </div>
-        <Chart />
+        <div className={Classes["chart"]}>
+          <Charts />
+        </div>
       </main>
     </>
   );
