@@ -2,11 +2,15 @@ import SideBar from "./Components/SideBar";
 import MainHeader from "./Components/MainHeader";
 import "./app.scss";
 import ItemsContainer from "./Components/ItemsContainer";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import AppWideContext from "./Context/AppContext";
 import { Routes, Route } from "react-router-dom";
 import ShoppingMain from "./Components/shoppinghistory/ShoppingMain";
 import Statistics from "./pages/Statistics";
+
+const ShoppingMain = React.lazy(() =>
+  import("./Components/shoppinghistory/ShoppingMain")
+);
 
 function App() {
   const [searchInputItem, setSearchItem] = useState("");
