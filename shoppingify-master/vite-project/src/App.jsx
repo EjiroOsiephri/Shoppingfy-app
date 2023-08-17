@@ -6,6 +6,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import AppWideContext from "./Context/AppContext";
 import { Routes, Route } from "react-router-dom";
 import Statistics from "./pages/Statistics";
+import LoadingSpinner from "./Components/UI/LoadingSpinner";
 
 const ShoppingMain = React.lazy(() =>
   import("./Components/shoppinghistory/ShoppingMain")
@@ -90,7 +91,9 @@ function App() {
   return (
     <>
       <AppWideContext.Provider value={AddNewItemObj}>
-        <Suspense fallback={<p>Loading.....</p>}>
+        <Suspense
+          fallback={<div className="spinner">{<LoadingSpinner />}</div>}
+        >
           <Routes>
             <Route
               path="/"

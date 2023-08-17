@@ -5,6 +5,11 @@
   overflow: hidden;
   scroll-behavior: smooth;
 }
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 input {
   letter-spacing: 1.2px;
   font-family: Quicksand;
