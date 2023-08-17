@@ -2,6 +2,7 @@ import React from "react";
 import Classes from "../Sass/MainHeader.module.scss";
 import FoodArray from "./FoodLists/FoodArray";
 import searchImg from "../assets/search.svg";
+import { motion } from "framer-motion";
 
 const MainHeader = (props) => {
   const handleInputValue = (e) => {
@@ -10,7 +11,12 @@ const MainHeader = (props) => {
 
   return (
     <>
-      <main className={Classes.MainHeader}>
+      <motion.main
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className={Classes.MainHeader}
+      >
         <header className={Classes["main-header"]}>
           <div className={Classes["texts"]}>
             <span>Shoppingify</span>
@@ -27,7 +33,7 @@ const MainHeader = (props) => {
         <section>
           <FoodArray searchInputItem={props.searchInputItem} />
         </section>
-      </main>
+      </motion.main>
     </>
   );
 };
