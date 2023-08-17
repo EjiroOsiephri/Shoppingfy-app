@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -12,27 +11,14 @@ import {
 ChartJS.register(LineElement, PointElement, LinearScale, Title);
 
 const Charts = () => {
-  const chartQuantity = useSelector((state) => state.cart.items);
-
   const Dummy_data = {
-    labels: [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ],
+    labels: ["January", "February", "March", "April", "May"],
     datasets: [
       {
         label: "Monthly Summary",
-        data: chartQuantity.map((item) => item.quantity * 10),
+        data: [140, 60, 20, 40, 120, 80, 100],
+        backgroundColor: ["rgba(249, 161, 9, 1)"],
+        borderColor: ["rgba(249, 161, 9, 1)"],
       },
     ],
   };
@@ -49,7 +35,13 @@ const Charts = () => {
     },
   };
 
-  return <Line data={Dummy_data} options={options} />;
+  return (
+    <>
+      <div style={{ width: "100%" }}>
+        <Line data={Dummy_data} options={options} />
+      </div>
+    </>
+  );
 };
 
 export default Charts;
