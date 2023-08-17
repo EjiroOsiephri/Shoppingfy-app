@@ -2,10 +2,9 @@ import SideBar from "./Components/SideBar";
 import MainHeader from "./Components/MainHeader";
 import "./app.scss";
 import ItemsContainer from "./Components/ItemsContainer";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import AppWideContext from "./Context/AppContext";
 import { Routes, Route } from "react-router-dom";
-import ShoppingMain from "./Components/shoppinghistory/ShoppingMain";
 import Statistics from "./pages/Statistics";
 
 const ShoppingMain = React.lazy(() =>
@@ -91,30 +90,32 @@ function App() {
   return (
     <>
       <AppWideContext.Provider value={AddNewItemObj}>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <main className="main">
-                <SideBar setShowCart={setShowCart} />
-                <MainHeader
-                  showCart={showCart}
-                  searchInput={searchInput}
-                  searchInputItem={searchInputItem}
-                />
-                <div className="cart-categories">
-                  <ItemsContainer
+        <Suspense fallback={<p>Loading.....</p>}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <main className="main">
+                  <SideBar setShowCart={setShowCart} />
+                  <MainHeader
                     showCart={showCart}
-                    cartItems={cartItems}
-                    setCartItems={setCartItems}
+                    searchInput={searchInput}
+                    searchInputItem={searchInputItem}
                   />
-                </div>
-              </main>
-            }
-          />
-          <Route element={<ShoppingMain />} path="/shopping-history" />
-          <Route element={<Statistics />} path="/statistics" />
-        </Routes>
+                  <div className="cart-categories">
+                    <ItemsContainer
+                      showCart={showCart}
+                      cartItems={cartItems}
+                      setCartItems={setCartItems}
+                    />
+                  </div>
+                </main>
+              }
+            />
+            <Route element={<ShoppingMain />} path="/shopping-history" />
+            <Route element={<Statistics />} path="/statistics" />
+          </Routes>
+        </Suspense>
       </AppWideContext.Provider>
     </>
   );
