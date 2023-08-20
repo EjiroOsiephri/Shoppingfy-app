@@ -1,0 +1,26 @@
+.learn-btn {
+  background-color: rgba(249, 161, 9, 1);
+  color: white;
+  padding: 1em;
+  border: none;
+  border-radius: 10px;
+}
+.text-section-learn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  min-width: 320px;
+}
+.text-section-learn h1 {
+  margin-bottom: 1em;
+}
+.text-section-learn p {
+  letter-spacing: 1.3px;
+}
+.text-section-learn h4 {
+  margin-top: 0.8em;
+}

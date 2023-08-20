@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import AppWideContext from "../Context/AppContext";
 import { useNavigate } from "react-router-dom";
+import "../Sass/learnmore.scss";
 
 const LearnMore = () => {
   const ctx = useContext(AppWideContext);
@@ -16,7 +17,9 @@ const LearnMore = () => {
   return (
     <>
       <main>
-        <button onClick={navigateToHome}>Go back to home</button>
+        <button className="learn-btn" onClick={navigateToHome}>
+          Go back to home
+        </button>
         <div className="text-section-learn">
           <h1>Thanks For checking out this page</h1>
           <p>
