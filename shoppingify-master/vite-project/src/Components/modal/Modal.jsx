@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 import Styled from "../../Sass/Modal.module.scss";
 import { motion } from "framer-motion";
+import AppWideContext from "../../Context/AppContext";
+import { useNavigate } from "react-router-dom";
 
 const BackDrop = () => {
   return <div className={Styled.backdrop}></div>;
 };
 const Modal = () => {
+  const ctx = useContext(AppWideContext);
+  const navigate = useNavigate();
+
+  const cancelModal = () => {
+    ctx.setShowModal(false);
+  };
+  const learnMore = () => {
+    navigate("/learnmore");
+    ctx.setShowModal(false);
+  };
   return (
     <motion.div className={Styled.modal}>
       <div className={Styled.content}>
@@ -19,8 +31,8 @@ const Modal = () => {
         </p>
       </div>
       <div className={Styled.button}>
-        <button>Cancel</button>
-        <button>Alright</button>
+        <button onClick={cancelModal}>Cancel</button>
+        <button onClick={learnMore}>Learn more</button>
       </div>
     </motion.div>
   );

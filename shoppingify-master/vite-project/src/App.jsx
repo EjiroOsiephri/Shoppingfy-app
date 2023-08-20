@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import LoadingSpinner from "./Components/UI/LoadingSpinner";
 import Modal from "./Components/modal/Modal";
 import Module from "./Components/modal/Modal";
+import LearnMore from "./pages/LearnMore";
 
 const ShoppingMain = React.lazy(() =>
   import("./Components/shoppinghistory/ShoppingMain")
@@ -96,6 +97,7 @@ function App() {
     setCompletionState,
     setShowCompletion,
     showCompletion,
+    setShowModal,
   };
 
   return (
@@ -128,6 +130,7 @@ function App() {
             />
             <Route element={<ShoppingMain />} path="/shopping-history" />
             <Route element={<Statistics />} path="/statistics" />
+            <Route element={<LearnMore />} path="/learnmore" />
           </Routes>
         </Suspense>
       </AppWideContext.Provider>
