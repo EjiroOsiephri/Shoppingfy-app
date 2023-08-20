@@ -3,6 +3,8 @@ import React, { Suspense, useEffect, useState } from "react";
 import AppWideContext from "./Context/AppContext";
 import { Routes, Route } from "react-router-dom";
 import LoadingSpinner from "./Components/UI/LoadingSpinner";
+import Modal from "./Components/modal/Modal";
+import Module from "./Components/modal/Modal";
 
 const ShoppingMain = React.lazy(() =>
   import("./Components/shoppinghistory/ShoppingMain")
@@ -36,6 +38,11 @@ function App() {
   const [itemName, setItemName] = useState([]);
   const [completionState, setCompletionState] = useState(false);
   const [showCompletion, setShowCompletion] = useState(false);
+  const [modal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    setShowModal(true);
+  }, []);
 
   const date = new Date();
 
@@ -94,6 +101,7 @@ function App() {
   return (
     <>
       <AppWideContext.Provider value={AddNewItemObj}>
+        {modal && <Module />}
         <Suspense
           fallback={<div className="spinner">{<LoadingSpinner />}</div>}
         >
